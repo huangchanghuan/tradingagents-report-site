@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {
+      "name": "威科夫操盘法",
+      "items": [
+        {
+          "id": "wyckoff-lifecycle",
+          "title": "股票全生命周期图",
+          "date": "2026-11-25",
+          "kind": "教程",
+          "file": "tutorials/wyckoff-lifecycle.html",
+          "desc": "吸筹 → 拉升 → 派发 → 下跌四阶段全景：13 个威科夫关键事件点（SC / Spring / SOS / BC / UTAD / SOW…）鼠标悬停解读，附威科夫三大定律与各阶段操作策略"
+        },
+        {
+          "id": "wyckoff-trading-plan",
+          "title": "各阶段交易场景与仓位计划",
+          "date": "2026-11-25",
+          "kind": "教程",
+          "file": "tutorials/wyckoff-trading-plan.html",
+          "desc": "T1~T9 交易子场景：入场 / 加仓 / 减仓 / 清仓点位，仓位节奏（20%→40%→70%→80% 封顶→逐步清零），止损防守位与风控纪律，附与价格对齐的仓位曲线"
+        }
+      ]
+    }
+  ]
+}

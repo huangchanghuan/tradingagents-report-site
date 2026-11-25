@@ -7,6 +7,7 @@
   let STRATEGY = [];
   let TDOCS = [];
   let SPECIALS = [];
+  let TUTORIAL_GROUPS = [];
   let currentId = null;
   let currentView = null; // 'report' | 'doc'
   let keyword = "";
@@ -19,6 +20,7 @@
   const $list = document.getElementById("reportList");
   const $docsList = document.getElementById("docsList");
   const $specialList = document.getElementById("specialList");
+  const $tutorialsList = document.getElementById("tutorialsList");
   const $main = document.getElementById("main");
   const $search = document.getElementById("search");
   const $rating = document.getElementById("ratingFilter");
@@ -73,6 +75,7 @@
     if (view === "report" && id) h = "#/r/" + encodeURIComponent(id);
     else if (view === "doc" && id) h = "#/d/" + encodeURIComponent(id);
     else if (view === "special" && id) h = "#/s/" + encodeURIComponent(id);
+    else if (view === "tutorial" && id) h = "#/t/" + encodeURIComponent(id);
     else if (view === "featured") h = "#/f/" + (id ? encodeURIComponent(id) : "");
     else if (view === "mode") h = "#/m";
     else if (view === "fail") h = "#/fail";
@@ -94,6 +97,7 @@
     if (path.indexOf("/r/") === 0) { view = "report"; id = decodeURIComponent(path.slice(3)); }
     else if (path.indexOf("/d/") === 0) { view = "doc"; id = decodeURIComponent(path.slice(3)); }
     else if (path.indexOf("/s/") === 0) { view = "special"; id = decodeURIComponent(path.slice(3)); }
+    else if (path.indexOf("/t/") === 0) { view = "tutorial"; id = decodeURIComponent(path.slice(3)); }
     else if (path.indexOf("/f/") === 0) { view = "featured"; id = decodeURIComponent(path.slice(3)); }
     else if (path === "/m" || path.indexOf("/m/") === 0) { view = "mode"; }
     else if (path === "/fail" || path.indexOf("/fail/") === 0) { view = "fail"; }
@@ -118,6 +122,7 @@
     $date.value = dateFilter;
     renderTree();
     renderSpecials();
+    renderTutorials();
     if (TDOCS.length) renderDocs();
     if (st.view === "report" && findReport(st.id)) {
       renderReport(st.id);
@@ -133,6 +138,10 @@
       const sp = SPECIALS.find(function (s) { return s.id === st.id; });
       if (sp) renderSpecial(sp);
       else renderSummaryView(); // 专题未加载/不存在，先回总结页
+    } else if (st.view === "tutorial") {
+      const tut = findTutorial(st.id);
+      if (tut) renderTutorial(tut);
+      else renderSummaryView(); // 教程未加载/不存在，先回总结页
     } else if (st.view === "doc") {
       const doc = TDOCS.find(function (d) { return d.id === st.id; });
       if (doc) renderDoc(doc);
@@ -456,6 +465,7 @@
     ["2026-11-19", 100.0],
     ["2026-11-20", 98.7],
     ["2026-11-24", 99.1],
+    ["2026-11-25", 98.1],
   ];
 
   function drawNavChart() {
@@ -642,6 +652,62 @@
   $specialList.addEventListener("click", function (e) {
     const item = e.target.closest(".tree-report");
     if (item) navigate("special", item.dataset.id);
+  });
+
+  // ---------- 教程（侧栏两级菜单 + 内嵌展示） ----------
+  function allTutorials() {
+    let out = [];
+    (TUTORIAL_GROUPS || []).forEach(function (g) {
+      (g.items || []).forEach(function (t) { out.push(t); });
+    });
+    return out;
+  }
+  function findTutorial(id) {
+    const hit = allTutorials().find(function (t) { return t.id === id; });
+    return hit || null;
+  }
+
+  function renderTutorials() {
+    if (!TUTORIAL_GROUPS.length) {
+      $tutorialsList.innerHTML = "";
+      return;
+    }
+    let html = "";
+    TUTORIAL_GROUPS.forEach(function (g) {
+      html += '<div class="tree-group">' + esc(g.name || "教程") + "</div>";
+      (g.items || []).forEach(function (t) {
+        html += '<div class="tree-report sub' + (currentView === "tutorial" && currentId === t.id ? " active" : "") + '" data-id="' + esc(t.id) + '">' +
+          '<span class="badge k-tutorial">' + esc(t.kind || "教程") + "</span>" +
+          '<span class="tr-doc-title">' + esc(t.title) + "</span>" +
+          "</div>";
+      });
+    });
+    $tutorialsList.innerHTML = html;
+  }
+
+  function renderTutorial(t) {
+    currentId = t.id;
+    currentView = "tutorial";
+    syncSidebarActive();
+    closeDrawer();
+    renderTutorials();
+    $list.querySelectorAll(".tree-report.active").forEach(function (el) { el.classList.remove("active"); });
+    $docsList.querySelectorAll(".tree-report.active").forEach(function (el) { el.classList.remove("active"); });
+    $specialList.querySelectorAll(".tree-report.active").forEach(function (el) { el.classList.remove("active"); });
+    $main.innerHTML =
+      '<div class="report-header">' +
+      '<div class="rh-line1"><span class="badge k-tutorial" style="font-size:13px;">' + esc(t.kind || "教程") + "</span>" +
+      '<h2 style="font-family:inherit;">' + esc(t.title) + "</h2></div>" +
+      '<div class="rh-meta"><span>日期 <b>' + esc(t.date || "—") + "</b></span></div>" +
+      (t.desc ? '<div class="report-summary">' + esc(t.desc) + "</div>" : "") +
+      "</div>" +
+      '<div class="special-frame"><iframe src="' + esc(t.file) + '" title="' + esc(t.title) + '" loading="lazy"></iframe></div>';
+    window.scrollTo({ top: 0 });
+  }
+
+  $tutorialsList.addEventListener("click", function (e) {
+    const item = e.target.closest(".tree-report");
+    if (item) navigate("tutorial", item.dataset.id);
   });
 
   // ---------- 日期筛选 ----------
@@ -1238,6 +1304,18 @@
       // 若初始 hash 指向某个专题（当时 special 尚未加载），补渲染
       const st = parseHash();
       if (st.view === "special") applyHash();
+    })
+    .then(function () {
+      // 教程（独立模块，加载失败不影响主报告）
+      return fetch("data/tutorials.json").then(function (res) { return res.json(); });
+    })
+    .then(function (tutData) {
+      if (!tutData) return;
+      TUTORIAL_GROUPS = tutData.groups || [];
+      renderTutorials();
+      // 若初始 hash 指向某篇教程（当时 tutorials 尚未加载），补渲染
+      const st = parseHash();
+      if (st.view === "tutorial") applyHash();
     })
     .catch(function (err) {
       if (REPORTS.length) { renderDocs(); return; } // tdocs 失败但主报告正常

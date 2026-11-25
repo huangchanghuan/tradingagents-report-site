@@ -773,3 +773,13 @@ body.dark .ev-line .ev-label { background: rgba(20,24,34,.75); }
   min-height: 480px;
   border: 0;
 }
+
+/* ===== 教程 ===== */
+.badge.k-tutorial { background: #e0f2f1; color: #00695c; margin-left: 0; }
+.tree-group {
+  padding: 6px 8px 4px 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.tree-report.sub { margin-left: 14px; }

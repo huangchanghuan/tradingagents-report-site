@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>威科夫操盘法 · 股票全生命周期图</title>
+<style>
+  :root {
+    --ink: #263238;
+    --muted: #607d8b;
+    --line: #cfd8dc;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --red: #d84343;      /* 涨（中式配色） */
+    --green: #2e9e6b;    /* 跌 */
+    --blue: #3b74c4;
+    --amber: #c98a1b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 28px; }
+  header h1 { font-size: 26px; letter-spacing: 1px; }
+  header p { color: var(--muted); margin-top: 8px; font-size: 14px; }
+
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 16px 12px;
+    box-shadow: 0 2px 10px rgba(38,50,56,.06);
+    overflow-x: auto;
+  }
+  svg { display: block; min-width: 900px; width: 100%; height: auto; }
+
+  /* 事件点 */
+  .ev { cursor: pointer; }
+  .ev circle.dot { transition: r .15s; }
+  .ev:hover circle.dot { r: 8; }
+  .ev:hover circle.halo { opacity: .18; }
+  .ev text { pointer-events: none; }
+  .halo { opacity: 0; transition: opacity .15s; }
+
+  #tooltip {
+    position: fixed;
+    display: none;
+    max-width: 260px;
+    background: #263238;
+    color: #fff;
+    font-size: 12.5px;
+    line-height: 1.55;
+    padding: 9px 12px;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  #tooltip b { font-size: 13px; }
+
+  .laws {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 22px 0;
+  }
+  .law {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--blue);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .law h3 { font-size: 15px; margin-bottom: 6px; }
+  .law p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .phase {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(38,50,56,.05);
+  }
+  .phase h3 { font-size: 16px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .phase .tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; color: #fff; }
+  .phase ul { list-style: none; margin-top: 10px; }
+  .phase li { font-size: 13px; line-height: 1.7; color: #455a64; padding-left: 14px; position: relative; }
+  .phase li::before { content: "·"; position: absolute; left: 2px; font-weight: bold; }
+  .phase .strategy {
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+  }
+  .phase .strategy b { color: var(--ink); }
+
+  .p1 h3 { color: var(--blue); }   .p1 .tag { background: var(--blue); }
+  .p2 h3 { color: var(--red); }    .p2 .tag { background: var(--red); }
+  .p3 h3 { color: var(--amber); }  .p3 .tag { background: var(--amber); }
+  .p4 h3 { color: var(--green); }  .p4 .tag { background: var(--green); }
+
+  footer { margin-top: 26px; text-align: center; color: #90a4ae; font-size: 12px; line-height: 1.7; }
+
+  @media (max-width: 860px) {
+    .laws, .phases { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>威科夫操盘法 · 股票全生命周期图</h1>
+    <p>吸筹 → 拉升 → 派发 → 下跌：跟着" composite man（综合人/主力）"的脚印走</p>
+  </header>
+
+  <div class="chart-card">
+    <svg viewBox="0 0 1040 520" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== 阶段背景带 ===== -->
+      <rect x="40"  y="70" width="335" height="310" fill="#e9f1fb" rx="10"/>
+      <rect x="375" y="70" width="255" height="310" fill="#fdeceb" rx="10"/>
+      <rect x="630" y="70" width="230" height="310" fill="#fdf5e3" rx="10"/>
+      <rect x="860" y="70" width="150" height="310" fill="#e7f4ec" rx="10"/>
+
+      <!-- 阶段标题 -->
+      <text x="207" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b74c4">① 吸筹 Accumulation</text>
+      <text x="502" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#d84343">② 拉升 Markup</text>
+      <text x="745" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#c98a1b">③ 派发 Distribution</text>
+      <text x="935" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e9e6b">④ 下跌 Markdown</text>
+
+      <!-- ===== 吸筹区间边界 ===== -->
+      <line x1="50" y1="290" x2="372" y2="290" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <line x1="50" y1="340" x2="372" y2="340" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <text x="46" y="286" font-size="10.5" fill="#78909c">区间阻力</text>
+      <text x="46" y="353" font-size="10.5" fill="#78909c">区间支撑</text>
+
+      <!-- ===== 派发区间边界 ===== -->
+      <line x1="632" y1="100" x2="858" y2="100" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <line x1="632" y1="140" x2="858" y2="140" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <text x="862" y="104" font-size="10.5" fill="#78909c">阻力</text>
+      <text x="862" y="144" font-size="10.5" fill="#78909c">支撑</text>
+
+      <!-- ===== 价格路径 ===== -->
+      <polyline fill="none" stroke="#37474f" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+        points="18,252 40,290 60,335 80,318 100,355 122,322 140,295 158,330 175,340 190,320 205,312
+                225,330 245,372 262,345 280,330 300,310 320,285 338,296 355,300
+                375,272 395,262 415,235 430,225 445,243 458,228 465,208 480,200 492,206 505,198 512,212
+                525,190 540,162 555,170 570,176 585,150 600,128 615,118 630,106
+                645,100 662,118 685,138 700,120 715,112 730,122 742,105 755,84
+                768,105 785,118 800,132 815,146 828,138 845,128 858,152
+                872,178 886,170 900,190 915,205 930,225 945,215 960,258 975,300 990,332"/>
+
+      <!-- 成交量区标题 -->
+      <text x="18" y="402" font-size="12" font-weight="bold" fill="#607d8b">成交量 Volume</text>
+      <line x1="18" y1="470" x2="1022" y2="470" stroke="#b0bec5" stroke-width="1"/>
+
+      <!-- 成交量柱（关键事件放大） -->
+      <g>
+        <rect x="52"  y="458" width="11" height="12" fill="#90a4ae"/>
+        <rect x="94"  y="418" width="13" height="52" fill="#3b74c4"/>   <!-- SC -->
+        <rect x="134" y="450" width="11" height="20" fill="#90a4ae"/>   <!-- AR -->
+        <rect x="169" y="460" width="11" height="10" fill="#90a4ae"/>   <!-- ST -->
+        <rect x="238" y="414" width="13" height="56" fill="#3b74c4"/>   <!-- Spring -->
+        <rect x="274" y="456" width="11" height="14" fill="#90a4ae"/>
+        <rect x="313" y="424" width="13" height="46" fill="#d84343"/>   <!-- SOS -->
+        <rect x="349" y="454" width="11" height="16" fill="#90a4ae"/>
+        <rect x="414" y="450" width="11" height="20" fill="#d84343"/>
+        <rect x="474" y="456" width="11" height="14" fill="#90a4ae"/>
+        <rect x="534" y="448" width="11" height="22" fill="#d84343"/>
+        <rect x="594" y="444" width="11" height="26" fill="#d84343"/>
+        <rect x="638" y="410" width="13" height="60" fill="#c98a1b"/>   <!-- BC -->
+        <rect x="679" y="446" width="11" height="24" fill="#90a4ae"/>
+        <rect x="709" y="456" width="11" height="14" fill="#90a4ae"/>
+        <rect x="748" y="418" width="13" height="52" fill="#c98a1b"/>   <!-- UTAD -->
+        <rect x="779" y="450" width="11" height="20" fill="#90a4ae"/>
+        <rect x="808" y="422" width="13" height="48" fill="#2e9e6b"/>   <!-- SOW -->
+        <rect x="839" y="448" width="11" height="22" fill="#90a4ae"/>
+        <rect x="874" y="440" width="11" height="30" fill="#2e9e6b"/>
+        <rect x="924" y="444" width="11" height="26" fill="#2e9e6b"/>
+        <rect x="984" y="430" width="11" height="40" fill="#2e9e6b"/>
+      </g>
+
+      <!-- ===== 关键事件点 ===== -->
+      <!-- PS -->
+      <g class="ev" data-t="<b>PS · Preliminary Support（初步支撑）</b><br>长期下跌后首次出现买盘承接，跌势放缓——主力开始留意这只票。">
+        <circle class="halo" cx="60" cy="335" r="16" fill="#3b74c4"/>
+        <circle class="dot" cx="60" cy="335" r="5.5" fill="#90a4ae" stroke="#fff" stroke-width="1.5"/>
+        <text x="60" y="316" text-anchor="middle" font-size="11" font-weight="bold" fill="#546e7a">PS</text>
+      </g>
+      <!-- SC -->
+      <g class="ev" data-t="<b>SC · Selling Climax（卖出高潮）</b><br>恐慌性抛售 + 天量成交，散户缴械。主力开始大举吸筹——底部第一声枪响。">
+        <circle class="halo" cx="100" cy="355" r="16" fill="#3b74c4"/>
+        <circle class="dot" cx="100" cy="355" r="5.5" fill="#3b74c4" stroke="#fff" stroke-width="1.5"/>
+        <text x="100" y="374" text-anchor="middle" font-size="11" font-weight="bold" fill="#3b74c4">SC</text>
+      </g>
+      <!-- AR -->
+      <g class="ev" data-t="<b>AR · Automatic Rally（自动反弹）</b><br>卖压枯竭后的自然反弹，反弹高点定义为区间阻力。">
+        <circle class="halo" cx="140" cy="295" r="16" fill="#78909c"/>
+        <circle class="dot" cx="140" cy="295" r="5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="140" y="279" text-anchor="middle" font-size="11" font-weight="bold" fill="#78909c">AR</text>
+      </g>
+      <!-- ST -->
+      <g class="ev" data-t="<b>ST · Secondary Test（二次测试）</b><br>回踩卖压区，缩量——抛压被吸收的信号。">
+        <circle class="halo" cx="175" cy="340" r="16" fill="#78909c"/>
+        <circle class="dot" cx="175" cy="340" r="5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="175" y="358" text-anchor="middle" font-size="11" font-weight="bold" fill="#78909c">ST</text>
+      </g>
+      <!-- Spring -->
+      <g class="ev" data-t="<b>Spring · 弹簧效应（假跌破）</b><br>放量击穿支撑又迅速收回——主力震仓洗盘，把最后一批不坚定的筹码吓出来。威科夫最经典的买点之一。">
+        <circle class="halo" cx="245" cy="372" r="16" fill="#3b74c4"/>
+        <circle class="dot" cx="245" cy="372" r="5.5" fill="#3b74c4" stroke="#fff" stroke-width="1.5"/>
+        <text x="245" y="391" text-anchor="middle" font-size="11" font-weight="bold" fill="#3b74c4">Spring</text>
+      </g>
+      <!-- SOS -->
+      <g class="ev" data-t="<b>SOS · Sign of Strength（强势信号）</b><br>放量突破区间阻力，需求彻底掌控盘面。">
+        <circle class="halo" cx="320" cy="285" r="16" fill="#d84343"/>
+        <circle class="dot" cx="320" cy="285" r="5.5" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="320" y="267" text-anchor="middle" font-size="11" font-weight="bold" fill="#d84343">SOS</text>
+      </g>
+      <!-- LPS -->
+      <g class="ev" data-t="<b>LPS · Last Point of Support（最后支撑点）</b><br>突破后的缩量回踩，不回区间——确认吸筹完成，趋势买点。">
+        <circle class="halo" cx="355" cy="300" r="16" fill="#d84343"/>
+        <circle class="dot" cx="355" cy="300" r="5.5" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="355" y="318" text-anchor="middle" font-size="11" font-weight="bold" fill="#d84343">LPS</text>
+      </g>
+      <!-- BC -->
+      <g class="ev" data-t="<b>BC · Buying Climax（买入高潮）</b><br>散户蜂拥追涨、天量滞涨。主力正在把筹码悉数倒给接盘者——顶部第一声枪响。">
+        <circle class="halo" cx="645" cy="100" r="16" fill="#c98a1b"/>
+        <circle class="dot" cx="645" cy="100" r="5.5" fill="#c98a1b" stroke="#fff" stroke-width="1.5"/>
+        <text x="645" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#c98a1b">BC</text>
+      </g>
+      <!-- AR2 -->
+      <g class="ev" data-t="<b>AR · Automatic Rally（自动反弹）</b><br>急跌后的技术性反弹，反弹高点成为派发区间支撑。">
+        <circle class="halo" cx="685" cy="138" r="16" fill="#78909c"/>
+        <circle class="dot" cx="685" cy="138" r="5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="685" y="156" text-anchor="middle" font-size="11" font-weight="bold" fill="#78909c">AR</text>
+      </g>
+      <!-- ST2 -->
+      <g class="ev" data-t="<b>ST · Secondary Test（二次测试）</b><br>再度上冲测试买盘是否还剩力气。">
+        <circle class="halo" cx="715" cy="112" r="16" fill="#78909c"/>
+        <circle class="dot" cx="715" cy="112" r="5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="715" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#78909c">ST</text>
+      </g>
+      <!-- UTAD -->
+      <g class="ev" data-t="<b>UTAD · Upthrust After Distribution（派发后上冲）</b><br>向上假突破：冲破阻力吸引追涨盘，随即跌回区间——顶部的 Spring 镜像。威科夫最经典的卖点/做空点。">
+        <circle class="halo" cx="755" cy="84" r="16" fill="#c98a1b"/>
+        <circle class="dot" cx="755" cy="84" r="5.5" fill="#c98a1b" stroke="#fff" stroke-width="1.5"/>
+        <text x="755" y="68" text-anchor="middle" font-size="11" font-weight="bold" fill="#c98a1b">UTAD</text>
+      </g>
+      <!-- SOW -->
+      <g class="ev" data-t="<b>SOW · Sign of Weakness（弱势信号）</b><br>放量有效跌破区间支撑，供给压倒需求——下跌趋势确立。">
+        <circle class="halo" cx="815" cy="146" r="16" fill="#2e9e6b"/>
+        <circle class="dot" cx="815" cy="146" r="5.5" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="815" y="164" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e9e6b">SOW</text>
+      </g>
+      <!-- LPSY -->
+      <g class="ev" data-t="<b>LPSY · Last Point of Supply（最后供给点）</b><br>破位后的弱反弹，无力收复支撑——最后的逃命/做空机会。">
+        <circle class="halo" cx="845" cy="128" r="16" fill="#2e9e6b"/>
+        <circle class="dot" cx="845" cy="128" r="5.5" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="845" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e9e6b">LPSY</text>
+      </g>
+
+      <!-- 起点与终点注释 -->
+      <text x="18" y="240" font-size="11" fill="#607d8b">前期下跌</text>
+      <text x="988" y="350" text-anchor="end" font-size="11" fill="#2e9e6b">……下一个周期的吸筹？</text>
+
+      <!-- 图例 -->
+      <g font-size="11.5" fill="#546e7a">
+        <circle cx="52" cy="500" r="5" fill="#3b74c4"/><text x="62" y="504">看多事件（买点）</text>
+        <circle cx="182" cy="500" r="5" fill="#c98a1b"/><text x="192" y="504">看空事件（卖点）</text>
+        <circle cx="312" cy="500" r="5" fill="#78909c"/><text x="322" y="504">中性事件</text>
+        <line x1="412" y1="500" x2="442" y2="500" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+        <text x="448" y="504">区间支撑 / 阻力</text>
+        <text x="1022" y="504" text-anchor="end" fill="#90a4ae">鼠标悬停事件点查看解读</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="laws">
+    <div class="law">
+      <h3>供求定律 Law of Supply &amp; Demand</h3>
+      <p>当需求大于供给，价格上升；供给大于需求，价格下降。区间内缩量测试 = 供给被吸收；放量破位 = 供给占上风。</p>
+    </div>
+    <div class="law">
+      <h3>因果定律 Law of Cause &amp; Effect</h3>
+      <p>吸筹区间是"因"，上涨幅度是"果"。横盘越久、震荡越充分（因越大），后续趋势的幅度与持续性越强（果越大）。</p>
+    </div>
+    <div class="law">
+      <h3>努力与结果定律 Law of Effort vs. Result</h3>
+      <p>成交量是"努力"，价格变化是"结果"。天量却不涨（BC 处）或天量却不跌（Spring 处），都预示趋势即将反转。</p>
+    </div>
+  </div>
+
+  <div class="phases">
+    <div class="phase p1">
+      <h3>① 吸筹 <span class="tag">区间震荡</span></h3>
+      <ul>
+        <li>长期下跌后进入横盘，散户绝望离场</li>
+        <li>SC 天量见底 → ST 缩量回测，抛压衰竭</li>
+        <li>Spring 假跌破是最后的洗盘+最凶的买点</li>
+        <li>SOS 放量突破确认主力吸筹完毕</li>
+      </ul>
+      <div class="strategy"><b>策略：</b>Spring / LPS 分批建仓，跌破 Spring 低点止损</div>
+    </div>
+    <div class="phase p2">
+      <h3>② 拉升 <span class="tag">趋势上行</span></h3>
+      <ul>
+        <li>需求主导，涨时放量、跌时缩量</li>
+        <li>途中的小幅横盘是"再吸筹"，而非派发</li>
+        <li>回调不破前低、不回吸筹区间</li>
+        <li>散户此时刚开始怀疑→追涨</li>
+      </ul>
+      <div class="strategy"><b>策略：</b>持股为主，缩量回调至支撑可加仓</div>
+    </div>
+    <div class="phase p3">
+      <h3>③ 派发 <span class="tag">高位横盘</span></h3>
+      <ul>
+        <li>利好满天飞，成交天量但价格滞涨</li>
+        <li>UTAD 假突破，诱多最后一波</li>
+        <li>反弹高点越来越低，买盘力竭</li>
+        <li>SOW 放量破位 = 主力出货完毕</li>
+      </ul>
+      <div class="strategy"><b>策略：</b>UTAD / LPSY 减仓离场，破位清仓</div>
+    </div>
+    <div class="phase p4">
+      <h3>④ 下跌 <span class="tag">趋势下行</span></h3>
+      <ul>
+        <li>供给主导，反弹皆为 LPSY 弱反弹</li>
+        <li>每一次"抄底"都是新的供给</li>
+        <li>恐慌高潮（最终 SC）出现后才见底</li>
+        <li>再度横盘 → 进入下一轮吸筹循环</li>
+      </ul>
+      <div class="strategy"><b>策略：</b>空仓观望；直至出现新的吸筹结构</div>
+    </div>
+  </div>
+
+  <footer>
+    威科夫操盘法（Wyckoff Method）由 Richard D. Wyckoff 于 20 世纪初提出 · 本图为方法论示意，不构成投资建议<br>
+    三阶段结构（吸筹/派发区间内的 Phase A–E 细分）可叠加于任意周期：周线定阶段，日线找事件点
+  </footer>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+  const tip = document.getElementById('tooltip');
+  document.querySelectorAll('.ev').forEach(g => {
+    g.addEventListener('mousemove', e => {
+      tip.innerHTML = g.dataset.t;
+      tip.style.display = 'block';
+      const pad = 14;
+      let x = e.clientX + pad, y = e.clientY + pad;
+      const r = tip.getBoundingClientRect();
+      if (x + r.width > window.innerWidth - 8)  x = e.clientX - r.width - pad;
+      if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - pad;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    });
+    g.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+  });
+</script>
+</body>
+</html>

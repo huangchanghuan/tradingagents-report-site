@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>威科夫操盘法 · 各阶段交易场景与仓位计划</title>
+<style>
+  :root {
+    --ink: #263238;
+    --muted: #607d8b;
+    --line: #cfd8dc;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --red: #d84343;      /* 买入/涨（中式配色） */
+    --green: #2e9e6b;    /* 卖出/跌 */
+    --blue: #3b74c4;
+    --amber: #c98a1b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 24px; }
+  header h1 { font-size: 26px; letter-spacing: 1px; }
+  header p { color: var(--muted); margin-top: 8px; font-size: 14px; }
+  header .legend-inline { margin-top: 10px; font-size: 13px; color: #455a64; }
+  header .legend-inline b.red { color: var(--red); }
+  header .legend-inline b.green { color: var(--green); }
+
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 16px 12px;
+    box-shadow: 0 2px 10px rgba(38,50,56,.06);
+    overflow-x: auto;
+  }
+  svg { display: block; min-width: 900px; width: 100%; height: auto; }
+
+  .ev { cursor: pointer; }
+  .ev circle.dot, .ev path.mark { transition: transform .15s; }
+  .ev:hover circle.halo { opacity: .18; }
+  .ev text { pointer-events: none; }
+  .halo { opacity: 0; transition: opacity .15s; }
+
+  #tooltip {
+    position: fixed;
+    display: none;
+    max-width: 280px;
+    background: #263238;
+    color: #fff;
+    font-size: 12.5px;
+    line-height: 1.55;
+    padding: 9px 12px;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  #tooltip b { font-size: 13px; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card);
+          border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+          box-shadow: 0 2px 8px rgba(38,50,56,.05); font-size: 13px; }
+  th { background: #37474f; color: #fff; padding: 10px 12px; text-align: left;
+       font-weight: 600; white-space: nowrap; }
+  td { padding: 10px 12px; border-top: 1px solid #eceff1; line-height: 1.6; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  td b.tno { display: inline-block; color: #fff; font-size: 12px; padding: 1px 8px;
+             border-radius: 999px; margin-right: 4px; }
+  .b-buy { background: var(--red); } .b-sell { background: var(--green); }
+  .b-hold { background: #78909c; }  .b-short { background: #6a4fa3; }
+  .pos-chg { font-family: "JetBrains Mono", Consolas, monospace; white-space: nowrap; }
+  .up { color: var(--red); font-weight: 600; }
+  .down { color: var(--green); font-weight: 600; }
+
+  .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+  .rule { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--red);
+          border-radius: 10px; padding: 14px 16px; }
+  .rule h3 { font-size: 15px; margin-bottom: 6px; }
+  .rule p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  footer { margin-top: 26px; text-align: center; color: #90a4ae; font-size: 12px; line-height: 1.7; }
+
+  @media (max-width: 860px) { .rules { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>威科夫操盘法 · 各阶段交易场景与仓位计划</h1>
+    <p>吸筹 → 拉升 → 派发 → 下跌：每个阶段该做什么、仓位多少、在哪止损</p>
+    <div class="legend-inline">
+      <b class="red">红色 T# = 买入/加仓</b> &nbsp;·&nbsp;
+      <b class="green">绿色 T# = 减仓/清仓</b> &nbsp;·&nbsp;
+      灰色 = 持有观察 &nbsp;·&nbsp; 紫色 = 进阶做空
+      （下方仓位曲线与价格时间轴对齐）
+    </div>
+  </header>
+
+  <div class="chart-card">
+    <svg viewBox="0 0 1040 640" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== 阶段背景带 ===== -->
+      <rect x="40"  y="70" width="335" height="310" fill="#e9f1fb" rx="10"/>
+      <rect x="375" y="70" width="255" height="310" fill="#fdeceb" rx="10"/>
+      <rect x="630" y="70" width="230" height="310" fill="#fdf5e3" rx="10"/>
+      <rect x="860" y="70" width="150" height="310" fill="#e7f4ec" rx="10"/>
+
+      <text x="207" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b74c4">① 吸筹 Accumulation</text>
+      <text x="502" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#d84343">② 拉升 Markup</text>
+      <text x="745" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#c98a1b">③ 派发 Distribution</text>
+      <text x="935" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e9e6b">④ 下跌 Markdown</text>
+
+      <!-- ===== 区间边界 ===== -->
+      <line x1="50" y1="290" x2="372" y2="290" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <line x1="50" y1="340" x2="372" y2="340" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <text x="46" y="286" font-size="10.5" fill="#78909c">区间阻力</text>
+      <text x="46" y="353" font-size="10.5" fill="#78909c">区间支撑</text>
+      <line x1="632" y1="100" x2="858" y2="100" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <line x1="632" y1="140" x2="858" y2="140" stroke="#78909c" stroke-width="1.4" stroke-dasharray="6 4"/>
+      <text x="862" y="104" font-size="10.5" fill="#78909c">阻力</text>
+      <text x="862" y="144" font-size="10.5" fill="#78909c">支撑</text>
+
+      <!-- ===== 价格路径 ===== -->
+      <polyline fill="none" stroke="#37474f" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+        points="18,252 40,290 60,335 80,318 100,355 122,322 140,295 158,330 175,340 190,320 205,312
+                225,330 245,372 262,345 280,330 300,310 320,285 338,296 355,300
+                375,272 395,262 415,235 430,225 445,243 458,228 465,208 480,200 492,206 505,198 512,212
+                525,190 540,162 555,170 570,176 585,150 600,128 615,118 630,106
+                645,100 662,118 685,138 700,120 715,112 730,122 742,105 755,84
+                768,105 785,118 800,132 815,146 828,138 845,128 858,152
+                872,178 886,170 900,190 915,205 930,225 945,215 960,258 975,300 990,332"/>
+
+      <!-- ===== 成交量 ===== -->
+      <text x="18" y="402" font-size="12" font-weight="bold" fill="#607d8b">成交量 Volume</text>
+      <line x1="18" y1="470" x2="1022" y2="470" stroke="#b0bec5" stroke-width="1"/>
+      <g>
+        <rect x="52"  y="458" width="11" height="12" fill="#90a4ae"/>
+        <rect x="94"  y="418" width="13" height="52" fill="#3b74c4"/>
+        <rect x="134" y="450" width="11" height="20" fill="#90a4ae"/>
+        <rect x="169" y="460" width="11" height="10" fill="#90a4ae"/>
+        <rect x="238" y="414" width="13" height="56" fill="#3b74c4"/>
+        <rect x="274" y="456" width="11" height="14" fill="#90a4ae"/>
+        <rect x="313" y="424" width="13" height="46" fill="#d84343"/>
+        <rect x="349" y="454" width="11" height="16" fill="#90a4ae"/>
+        <rect x="414" y="450" width="11" height="20" fill="#d84343"/>
+        <rect x="474" y="456" width="11" height="14" fill="#90a4ae"/>
+        <rect x="534" y="448" width="11" height="22" fill="#d84343"/>
+        <rect x="594" y="444" width="11" height="26" fill="#d84343"/>
+        <rect x="638" y="410" width="13" height="60" fill="#c98a1b"/>
+        <rect x="679" y="446" width="11" height="24" fill="#90a4ae"/>
+        <rect x="709" y="456" width="11" height="14" fill="#90a4ae"/>
+        <rect x="748" y="418" width="13" height="52" fill="#c98a1b"/>
+        <rect x="779" y="450" width="11" height="20" fill="#90a4ae"/>
+        <rect x="808" y="422" width="13" height="48" fill="#2e9e6b"/>
+        <rect x="839" y="448" width="11" height="22" fill="#90a4ae"/>
+        <rect x="874" y="440" width="11" height="30" fill="#2e9e6b"/>
+        <rect x="924" y="444" width="11" height="26" fill="#2e9e6b"/>
+        <rect x="984" y="430" width="11" height="40" fill="#2e9e6b"/>
+      </g>
+
+      <!-- ===== 威科夫事件点（底层） ===== -->
+      <g class="ev" data-t="<b>PS · 初步支撑</b><br>长期下跌后买盘首次承接。">
+        <circle class="halo" cx="60" cy="335" r="16" fill="#3b74c4"/>
+        <circle class="dot" cx="60" cy="335" r="5" fill="#90a4ae" stroke="#fff" stroke-width="1.5"/>
+        <text x="60" y="316" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#546e7a">PS</text>
+      </g>
+      <g class="ev" data-t="<b>SC · 卖出高潮</b><br>恐慌抛售+天量，主力开始吸筹。">
+        <circle class="halo" cx="100" cy="355" r="16" fill="#3b74c4"/>
+        <circle class="dot" cx="100" cy="355" r="5" fill="#3b74c4" stroke="#fff" stroke-width="1.5"/>
+        <text x="100" y="374" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3b74c4">SC</text>
+      </g>
+      <g class="ev" data-t="<b>AR · 自动反弹</b><br>卖压枯竭的自然反弹，定义区间阻力。">
+        <circle class="halo" cx="140" cy="295" r="16" fill="#78909c"/>
+        <circle class="dot" cx="140" cy="295" r="4.5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="140" y="279" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#78909c">AR</text>
+      </g>
+      <g class="ev" data-t="<b>ST · 二次测试</b><br>缩量回测，抛压衰竭信号。">
+        <circle class="halo" cx="175" cy="340" r="16" fill="#78909c"/>
+        <circle class="dot" cx="175" cy="340" r="4.5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="175" y="358" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#78909c">ST</text>
+      </g>
+      <g class="ev" data-t="<b>Spring · 弹簧（假跌破）</b><br>放量击穿支撑又收回——震仓洗盘，T1 试仓买点。">
+        <circle class="halo" cx="245" cy="372" r="16" fill="#3b74c4"/>
+        <circle class="dot" cx="245" cy="372" r="5.5" fill="#3b74c4" stroke="#fff" stroke-width="1.5"/>
+        <text x="245" y="391" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#3b74c4">Spring</text>
+      </g>
+      <g class="ev" data-t="<b>SOS · 强势信号</b><br>放量突破区间阻力，T3 加仓触发点。">
+        <circle class="halo" cx="320" cy="285" r="16" fill="#d84343"/>
+        <circle class="dot" cx="320" cy="285" r="5.5" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="320" y="267" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d84343">SOS</text>
+      </g>
+      <g class="ev" data-t="<b>LPS · 最后支撑点</b><br>突破后缩量回踩不回区间，T4 加仓买点。">
+        <circle class="halo" cx="355" cy="300" r="16" fill="#d84343"/>
+        <circle class="dot" cx="355" cy="300" r="5.5" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="355" y="318" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d84343">LPS</text>
+      </g>
+      <g class="ev" data-t="<b>BC · 买入高潮</b><br>散户蜂拥+天量滞涨，主力出货，T6 首次减仓。">
+        <circle class="halo" cx="645" cy="100" r="16" fill="#c98a1b"/>
+        <circle class="dot" cx="645" cy="100" r="5.5" fill="#c98a1b" stroke="#fff" stroke-width="1.5"/>
+        <text x="645" y="84" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#c98a1b">BC</text>
+      </g>
+      <g class="ev" data-t="<b>AR · 自动反弹</b><br>急跌后技术反弹，成为派发区支撑。">
+        <circle class="halo" cx="685" cy="138" r="16" fill="#78909c"/>
+        <circle class="dot" cx="685" cy="138" r="4.5" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="685" y="156" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#78909c">AR</text>
+      </g>
+      <g class="ev" data-t="<b>UTAD · 派发后上冲</b><br>向上假突破诱多，T7 大幅减仓点。">
+        <circle class="halo" cx="755" cy="84" r="16" fill="#c98a1b"/>
+        <circle class="dot" cx="755" cy="84" r="5.5" fill="#c98a1b" stroke="#fff" stroke-width="1.5"/>
+        <text x="755" y="68" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#c98a1b">UTAD</text>
+      </g>
+      <g class="ev" data-t="<b>SOW · 弱势信号</b><br>放量破支撑，T8 无条件清仓点。">
+        <circle class="halo" cx="815" cy="146" r="16" fill="#2e9e6b"/>
+        <circle class="dot" cx="815" cy="146" r="5.5" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="815" y="164" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2e9e6b">SOW</text>
+      </g>
+      <g class="ev" data-t="<b>LPSY · 最后供给点</b><br>破位后弱反弹，最后的逃命机会；做空者的 T9 入场点。">
+        <circle class="halo" cx="845" cy="128" r="16" fill="#2e9e6b"/>
+        <circle class="dot" cx="845" cy="128" r="5.5" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="845" y="112" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2e9e6b">LPSY</text>
+      </g>
+
+      <!-- ===== 交易操作标记 T1~T9 ===== -->
+      <!-- T1 买入：Spring -->
+      <g class="ev" data-t="<b>T1 · 试仓（买入 20%）</b><br>Spring 假跌破后收回当日尾盘/次日确认时买入。<br>仓位：0% → 20%<br>止损：Spring 低点下方 1–2%<br>原则：最凶的洗盘点，必须轻仓试探。">
+        <circle class="halo" cx="216" cy="399" r="16" fill="#d84343"/>
+        <circle cx="216" cy="399" r="10" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="216" y="403" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T1</text>
+        <text x="216" y="420" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d84343">试仓 20%</text>
+      </g>
+      <!-- T2 观察：Test -->
+      <g class="ev" data-t="<b>T2 · 持有观察</b><br>Spring 后缩量回踩不创新低 → 持有不动。<br>仓位：维持 20%<br>防守：若放量跌回 Spring 低点下方，T1 试探仓立即止损。">
+        <circle class="halo" cx="295" cy="340" r="16" fill="#78909c"/>
+        <circle cx="295" cy="340" r="10" fill="#78909c" stroke="#fff" stroke-width="1.5"/>
+        <text x="295" y="344" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T2</text>
+        <text x="295" y="358" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#607d8b">持有</text>
+      </g>
+      <!-- T3 买入：SOS -->
+      <g class="ev" data-t="<b>T3 · 突破加仓（+20%）</b><br>SOS 放量突破区间阻力当日/回踩不破时加仓。<br>仓位：20% → 40%<br>止损：上移至区间支撑 290 一线<br>确认：突破日量能 ≥ 前期均量 1.5 倍。">
+        <circle class="halo" cx="344" cy="272" r="16" fill="#d84343"/>
+        <circle cx="344" cy="272" r="10" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="344" y="276" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T3</text>
+        <text x="344" y="258" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d84343">→ 40%</text>
+      </g>
+      <!-- T4 买入：LPS -->
+      <g class="ev" data-t="<b>T4 · 回踩加仓（+30%）</b><br>LPS 回踩不回区间 → 加仓。<br>仓位：40% → 70%<br>止损：LPS 低点下方<br>要点：突破后的第一次回踩，确定性最高的一笔。">
+        <circle class="halo" cx="382" cy="292" r="16" fill="#d84343"/>
+        <circle cx="382" cy="292" r="10" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="382" y="296" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T4</text>
+        <text x="382" y="310" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d84343">→ 70%</text>
+      </g>
+      <!-- T5 买入：拉升中再吸筹 -->
+      <g class="ev" data-t="<b>T5 · 最后加满（+10%）</b><br>拉升途中再吸筹平台缩量回调 → 最后一笔。<br>仓位：70% → 80%（单账户上限）<br>止损：平台下沿<br>纪律：此后只持有，不再加仓、不追高。">
+        <circle class="halo" cx="445" cy="262" r="16" fill="#d84343"/>
+        <circle cx="445" cy="262" r="10" fill="#d84343" stroke="#fff" stroke-width="1.5"/>
+        <text x="445" y="266" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T5</text>
+        <text x="445" y="280" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#d84343">→ 80% 封顶</text>
+      </g>
+      <!-- T6 卖出：BC -->
+      <g class="ev" data-t="<b>T6 · 首次减仓（-30%）</b><br>BC 天量滞涨/放量长上影 → 落袋。<br>仓位：80% → 50%<br>要点：不追求卖在最高点；涨不动=供给出现。">
+        <circle class="halo" cx="645" cy="126" r="16" fill="#2e9e6b"/>
+        <circle cx="645" cy="126" r="10" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="645" y="130" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T6</text>
+        <text x="645" y="146" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2e9e6b">→ 50%</text>
+      </g>
+      <!-- T7 卖出：UTAD -->
+      <g class="ev" data-t="<b>T7 · 大幅减仓（-30%）</b><br>UTAD 冲高假突破回落 → 只留核心仓。<br>仓位：50% → 20%<br>止损参考：UTAD 高点<br>要点：顶部镜像 Spring，诱多陷阱。">
+        <circle class="halo" cx="755" cy="118" r="16" fill="#2e9e6b"/>
+        <circle cx="755" cy="118" r="10" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="755" y="122" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T7</text>
+        <text x="755" y="138" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2e9e6b">→ 20%</text>
+      </g>
+      <!-- T8 清仓：SOW -->
+      <g class="ev" data-t="<b>T8 · 无条件清仓</b><br>SOW 放量有效跌破区间支撑 → 归零。<br>仓位：20% → 0%<br>纪律：不猜、不等反弹、不补仓。">
+        <circle class="halo" cx="815" cy="182" r="16" fill="#2e9e6b"/>
+        <circle cx="815" cy="182" r="10" fill="#2e9e6b" stroke="#fff" stroke-width="1.5"/>
+        <text x="815" y="186" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T8</text>
+        <text x="815" y="198" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2e9e6b">→ 0% 清仓</text>
+      </g>
+      <!-- T9 做空：LPSY -->
+      <g class="ev" data-t="<b>T9 · 进阶做空（≤30%）</b><br>LPSY 弱反弹无力收复支撑 → 做空（融券/期货）。<br>仓位：≤ 30%<br>止损：LPSY 高点上方<br>普通 A 股账户此阶段 = 空仓观望，等下一轮吸筹。">
+        <circle class="halo" cx="845" cy="148" r="16" fill="#6a4fa3"/>
+        <circle cx="845" cy="148" r="10" fill="#6a4fa3" stroke="#fff" stroke-width="1.5"/>
+        <text x="845" y="152" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">T9</text>
+        <text x="845" y="166" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#6a4fa3">做空 ≤30%</text>
+      </g>
+
+      <text x="18" y="240" font-size="11" fill="#607d8b">前期下跌</text>
+      <text x="988" y="350" text-anchor="end" font-size="11" fill="#2e9e6b">……下一个周期的吸筹？</text>
+
+      <!-- ===== 仓位曲线 ===== -->
+      <rect x="40" y="496" width="970" height="90" fill="#f8fafc" rx="8" stroke="#eceff1"/>
+      <text x="18" y="502" font-size="12" font-weight="bold" fill="#3b74c4">仓位</text>
+      <text x="30" y="512" font-size="10" fill="#90a4ae" text-anchor="end">100%</text>
+      <text x="30" y="545" font-size="10" fill="#90a4ae" text-anchor="end">50%</text>
+      <text x="30" y="580" font-size="10" fill="#90a4ae" text-anchor="end">0%</text>
+      <line x1="40" y1="508" x2="1010" y2="508" stroke="#e3e7ea" stroke-width="1"/>
+      <line x1="40" y1="541" x2="1010" y2="541" stroke="#e3e7ea" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="40" y1="575" x2="1010" y2="575" stroke="#b0bec5" stroke-width="1"/>
+
+      <polygon fill="#d84343" fill-opacity="0.18"
+        points="18,575 180,575 245,560 320,545 355,526 445,515 620,515 645,538 755,560 815,575 990,575"/>
+      <polyline fill="none" stroke="#d84343" stroke-width="2.2" stroke-linejoin="round"
+        points="18,575 180,575 245,560 320,545 355,526 445,515 620,515 645,538 755,560 815,575 990,575"/>
+
+      <g font-size="10.5" font-weight="bold" fill="#d84343">
+        <circle cx="245" cy="560" r="3.5" fill="#d84343"/>
+        <text x="245" y="552" text-anchor="middle">T1 20%</text>
+        <circle cx="320" cy="545" r="3.5" fill="#d84343"/>
+        <circle cx="355" cy="526" r="3.5" fill="#d84343"/>
+        <text x="355" y="518" text-anchor="middle">T4 70%</text>
+        <circle cx="445" cy="515" r="3.5" fill="#d84343"/>
+        <text x="445" y="506" text-anchor="middle">T5 80% 封顶</text>
+        <circle cx="645" cy="538" r="3.5" fill="#2e9e6b"/>
+        <text x="668" y="534" text-anchor="start" fill="#2e9e6b">T6 50%</text>
+        <circle cx="755" cy="560" r="3.5" fill="#2e9e6b"/>
+        <circle cx="815" cy="575" r="3.5" fill="#2e9e6b"/>
+        <text x="838" y="570" text-anchor="start" fill="#2e9e6b">T8 清零观望</text>
+      </g>
+      <text x="905" y="525" font-size="10.5" fill="#90a4ae">下跌阶段空仓</text>
+    </svg>
+  </div>
+
+  <!-- ===== 操作计划表 ===== -->
+  <div style="margin-top:24px;">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>阶段</th><th>触发信号</th><th>操作</th>
+        <th>仓位变化</th><th>止损 / 防守位</th><th>要点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b class="tno b-buy">T1</b></td><td>① 吸筹</td>
+        <td>Spring 假跌破支撑后收回（当日尾盘或次日确认）</td>
+        <td>试仓买入</td>
+        <td class="pos-chg up">0% → 20%</td>
+        <td>Spring 低点下方 1–2%</td>
+        <td>最凶的洗盘点，必须轻仓试探，错了损失极小</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-hold">T2</b></td><td>① 吸筹</td>
+        <td>Spring 后缩量回踩（Test）不创新低</td>
+        <td>持有观察</td>
+        <td class="pos-chg">维持 20%</td>
+        <td>放量跌回 Spring 低点下 → 立即止损</td>
+        <td>缩量 = 抛压衰竭确认，不加不减</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-buy">T3</b></td><td>①→②</td>
+        <td>SOS 放量突破区间阻力（量能 ≥ 前期均量 1.5 倍）</td>
+        <td>加仓</td>
+        <td class="pos-chg up">20% → 40%</td>
+        <td>止损上移至区间支撑</td>
+        <td>突破日收盘跌回区间内 = 假突破，T1/T3 一起撤</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-buy">T4</b></td><td>② 拉升</td>
+        <td>LPS 回踩不回区间、缩量企稳</td>
+        <td>加仓</td>
+        <td class="pos-chg up">40% → 70%</td>
+        <td>LPS 低点下方</td>
+        <td>突破后第一次回踩，确定性最高的一笔</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-buy">T5</b></td><td>② 拉升</td>
+        <td>途中再吸筹平台缩量回调</td>
+        <td>最后一笔加满</td>
+        <td class="pos-chg up">70% → 80% 封顶</td>
+        <td>平台下沿，随后跟随上移</td>
+        <td>金字塔加仓：越涨加得越少；此后只持有不追高</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-sell">T6</b></td><td>③ 派发</td>
+        <td>BC 天量滞涨 / 放量长上影 / 利好不涨</td>
+        <td>首次减仓</td>
+        <td class="pos-chg down">80% → 50%</td>
+        <td>成本线或前高失守即再减</td>
+        <td>不求卖在最高点，涨不动就是供给出现</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-sell">T7</b></td><td>③ 派发</td>
+        <td>UTAD 冲高假突破回落（跌破阻力位收回）</td>
+        <td>大幅减仓</td>
+        <td class="pos-chg down">50% → 20%</td>
+        <td>UTAD 高点上方</td>
+        <td>顶部镜像 Spring——诱多陷阱，只留核心仓</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-sell">T8</b></td><td>③→④</td>
+        <td>SOW 放量有效跌破区间支撑（收盘确认）</td>
+        <td>清仓</td>
+        <td class="pos-chg down">20% → 0%</td>
+        <td>—</td>
+        <td>无条件离场：不猜底、不等反弹、不补仓</td>
+      </tr>
+      <tr>
+        <td><b class="tno b-short">T9</b></td><td>④ 下跌</td>
+        <td>LPSY 弱反弹无力收复支撑</td>
+        <td>进阶：做空 / 否则观望</td>
+        <td class="pos-chg">≤ 30%（融券/期货）</td>
+        <td>LPSY 高点上方</td>
+        <td>普通 A 股账户此阶段 = 空仓，等下一轮吸筹结构</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ===== 风控纪律 ===== -->
+  <div class="rules">
+    <div class="rule">
+      <h3>单笔风险 ≤ 总资金 2%</h3>
+      <p>仓位不是拍脑袋定的：由止损距离反推。例如止损空间 5%，则该笔仓位 = 2% ÷ 5% = 40% 上限；试仓（T1）止损空间大，所以只能给 20%。</p>
+    </div>
+    <div class="rule">
+      <h3>金字塔式加仓</h3>
+      <p>只在盈利方向上加仓，且越加越少、越加越接近趋势后段（20→20→30→10）。浮亏加仓摊成本是威科夫体系的大忌。</p>
+    </div>
+    <div class="rule">
+      <h3>突破失败 = 立即离场</h3>
+      <p>SOS/突破日收盘跌回区间内即判失败；UTAD 收回阻力下方即判诱多。信号失效的那一刻离场，不等止损位被打掉。</p>
+    </div>
+    <div class="rule">
+      <h3>拉升期移动止损</h3>
+      <p>止损跟随结构上移：区间支撑 → LPS 低点 → 再吸筹平台下沿 → 前一个 LPS。永远不把止损留在原地。</p>
+    </div>
+    <div class="rule">
+      <h3>派发期宁卖错勿套牢</h3>
+      <p>T6/T7 的减仓不追求精确顶部：威科夫信号是概率而非预言。卖飞了可以再买回，套牢了没有下一次机会。</p>
+    </div>
+    <div class="rule">
+      <h3>下跌期最大的动作是不动</h3>
+      <p>清仓后空仓等待：下一个周期的 Spring + LPS 出现之前，任何"看起来便宜"都只是下跌中继。</p>
+    </div>
+  </div>
+
+  <footer>
+    威科夫操盘法（Wyckoff Method）· 交易场景与仓位计划为方法论示意，仓位比例为常见框架示例，请按个人风险承受度调整 · 不构成投资建议
+  </footer>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+  const tip = document.getElementById('tooltip');
+  document.querySelectorAll('.ev').forEach(g => {
+    g.addEventListener('mousemove', e => {
+      tip.innerHTML = g.dataset.t;
+      tip.style.display = 'block';
+      const pad = 14;
+      let x = e.clientX + pad, y = e.clientY + pad;
+      const r = tip.getBoundingClientRect();
+      if (x + r.width > window.innerWidth - 8)  x = e.clientX - r.width - pad;
+      if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - pad;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    });
+    g.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+  });
+</script>
+</body>
+</html>
