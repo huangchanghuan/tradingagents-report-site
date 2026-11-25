@@ -1,0 +1,7117 @@
+{
+ "generatedAt": "2026-11-25T19:46:46",
+ "source": "/home/sun/.tradingagents/logs/reports",
+ "count": 97,
+ "brief": {
+  "start": "11-18",
+  "end": "11-25",
+  "reportCount": 97,
+  "stockCount": 33,
+  "buyCount": 0,
+  "overweightCount": 2,
+  "holdCount": 1,
+  "sellCount": 30,
+  "bigChance": [
+   "指数深坑回调，对比历史和各种数据，直接重仓杠杆买指数反弹，反弹减仓兑现。"
+  ],
+  "failCases": [
+   "等待到了机会入场，然后盈利，最后放任不管，盈利减半，还没行动，最后亏损。",
+   "破位必须止损离场。",
+   "过于相信、没有计划，吃了港股 ETF（周线已破）的破位下跌趋势，利润回撤巨大。",
+   "老奶奶下楼梯博指数反弹：极端冰点进场后没有计划，反弹做成了等待大反转，有盈利不止损，最后变破位亏损。"
+  ],
+  "failLesson": "必须有计划。盈利后，最重要的是锁住利润，重点考虑什么时候离场，不要变成亏本了。"
+ },
+ "strategy": [
+  "市场判断：空头主导，市场环境很差——近一周 买入 0 / 增持 2 / 中性 1 / 减持·卖出 30（平均评级分 -1.3）。",
+  "是否右侧：尚在左侧，不要抄底，不做的模式不做，等待放量收复关键均线再入场。",
+  "仓位建议：空仓止损，严格执行止损纪律，耐心等待右侧信号。",
+  "若只有空仓和满仓两个选择：空仓。",
+  "风险纪律：512980.SS、159611.SZ、516630.SS、159869.SZ、159559.SZ 评级偏空，已持仓的立即严格执行止损，未持仓的不要接飞刀。",
+  "评级阶梯：Buy（买入）→ Overweight（增持）→ Hold（持有）→ Reduce（减持）→ Sell（卖出）；买入=标准配置甚至满配立即建仓，增持=分批小仓位挂确认条件，持有=不新开仓。",
+  "（以上为基于近一周报告评级的规则化推断，不构成投资建议）"
+ ],
+ "reports": [
+  {
+   "id": "512980.SS_20261125_191310",
+   "ticker": "512980.SS",
+   "name": "广发中证传媒ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 19:13:10",
+   "target": "0.692",
+   "horizon": "1-3 months",
+   "summary": "对 512980.SS 执行减持而非清仓：将敞口压缩至标准配置的一半或以下，减仓采用双轨触发——首选无量反弹至 0.745–0.7536（10 EMA）区间分批执行；若两周内反弹始终到不了 0.745，则在 0.705–0.711 一带主动再减一批。残余仓位以 0.6921（布林下轨）收盘破位为硬性…",
+   "stamp": "20261125_191310",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512980.SS_20261125_191310.json"
+  },
+  {
+   "id": "512690.SS_20261125_190640",
+   "ticker": "512690.SS",
+   "name": "鹏华国证白酒/消费酒ETF，Penghua CSI Alcohol ETF，上交所",
+   "date": "2026-11-25",
+   "rating": "持有",
+   "generated": "2026-11-25 19:06:40",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "维持对512690.SS的现有仓位，不新增、不减仓，总敞口控制在半仓（组合口径5–10%硬顶）以下、突破前不加杠杆。空仓者暂不建仓，预先写入两档条件触发价：①收盘站稳0.4394（布林中轨）且MACD柱转正，以1/4仓位介入，止损0.415；②放量（≥15亿份）突破0.454（200 SMA区域）后…",
+   "stamp": "20261125_190640",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512690.SS_20261125_190640.json"
+  },
+  {
+   "id": "159611.SZ_20261125_190145",
+   "ticker": "159611.SZ",
+   "name": "广发基金 - 中证全指电力电网指数ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 19:01:45",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_190145",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159611.SZ_20261125_190145.json"
+  },
+  {
+   "id": "516630.SS_20261125_185357",
+   "ticker": "516630.SS",
+   "name": "华夏中证云计算与大数据主题ETF，上交所",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 18:53:57",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_185357",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516630.SS_20261125_185357.json"
+  },
+  {
+   "id": "159869.SZ_20261125_172431",
+   "ticker": "159869.SZ",
+   "name": "华夏中证动漫游戏ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 17:24:31",
+   "target": "0.852",
+   "horizon": "1-3 months",
+   "summary": "159869.SZ（0.878）三线空头排列、MACD 90日最深负值、半年新低，三位风控罕见一致裁定SELL。执行：持仓者现价先减1/3–1/2，余仓挂0.92–0.937压力带（10 EMA）分批减至标准配置50%以下；止损0.852（布林下轨，1.7×ATR），跌破无条件清仓并预留滑点余量；空…",
+   "stamp": "20261125_172431",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159869.SZ_20261125_172431.json"
+  },
+  {
+   "id": "159559.SZ_20261125_172126",
+   "ticker": "159559.SZ",
+   "name": "Invesco Great Wall 景顺长城中证机器人产业指数ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 17:21:26",
+   "target": "1.008",
+   "horizon": "1-3 months",
+   "summary": "对159559.SZ裁定Underweight（审慎减配）：在当前价位1.041附近将敞口降至标准仓位的1/4–1/3，保留核心观察仓但禁止任何新增买入；0.988（52周低点0.991下方一档）为无条件离场线，但按\"地板价\"而非\"保证成交价\"管理——盘中跌破0.991即手动执行，不等止损单被动成交…",
+   "stamp": "20261125_172126",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159559.SZ_20261125_172126.json"
+  },
+  {
+   "id": "159732.SZ_20261125_171514",
+   "ticker": "159732.SZ",
+   "name": "华夏中证消费电子主题ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 17:15:14",
+   "target": "0.957",
+   "horizon": "1-3 months",
+   "summary": "对 159732.SZ 执行减仓（Underweight），而非清仓或左侧抄底：方向 Bearish 三位分析师无争议，分歧仅在执行，采纳中立派融合版三轨制。价格轨：反弹至 0.957（10 EMA）减掉计划减仓量的一半，至 0.990（布林中轨/VWMA 套牢压力带）清掉其余；时间轨（吸收 11-…",
+   "stamp": "20261125_171514",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159732.SZ_20261125_171514.json"
+  },
+  {
+   "id": "588200.SS_20261125_171354",
+   "ticker": "588200.SS",
+   "name": "华夏基金 - 上证科创板芯片指数 ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 17:13:54",
+   "target": "0.742",
+   "horizon": "1–3 months",
+   "summary": "For 588200.SS (Harvest SSE Star Chip Index ETF, SHH), exit the long: holders immediately cut exposure to no more than ~0.5x standard weight at 0.784, …",
+   "stamp": "20261125_171354",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588200.SS_20261125_171354.json"
+  },
+  {
+   "id": "159688.SZ_20261125_171328",
+   "ticker": "159688.SZ",
+   "name": "深圳证券交易所",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 17:13:28",
+   "target": "0.516",
+   "horizon": "1-3 months",
+   "summary": "对159688.SZ执行减持退出（Sell），采用三层梯子执行而非单一时点：立即在现价0.556–0.56区间执行第一笔减持、将敞口降至标准配置约70%——这笔是支付给QDII隔夜跳空风险的保险费，封住最大受损面；其余减持单挂在0.58–0.595反抽区（10 EMA附近），但设两个交易日的时限条款…",
+   "stamp": "20261125_171328",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159688.SZ_20261125_171328.json"
+  },
+  {
+   "id": "159570.SZ_20261125_171037",
+   "ticker": "159570.SZ",
+   "name": "汇添富/中证港股通创新药ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 17:10:37",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_171037",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159570.SZ_20261125_171037.json"
+  },
+  {
+   "id": "159928.SZ_20261125_170604",
+   "ticker": "159928.SZ",
+   "name": "汇添富中证主要消费ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 17:06:04",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_170604",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159928.SZ_20261125_170604.json"
+  },
+  {
+   "id": "512710.SS_20261125_170413",
+   "ticker": "512710.SS",
+   "name": "富国中证军工龙头ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 17:04:13",
+   "target": "0.5",
+   "horizon": "1-3 months",
+   "summary": "Do not initiate any new longs in 512710.SS at the current 0.526 (52-week low zone). Reduce existing exposure by 1/3 to 1/2 on rebounds into 0.556-0.58…",
+   "stamp": "20261125_170413",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512710.SS_20261125_170413.json"
+  },
+  {
+   "id": "510300.SS_20261125_170345",
+   "ticker": "510300.SS",
+   "name": "华泰柏瑞沪深300ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 17:03:45",
+   "target": "4.086",
+   "horizon": "1-3 months",
+   "summary": "对 510300.SS（华泰柏瑞沪深300ETF）执行减配至标准配置的 60–70%：现价 3.970 附近先执行总减仓额度的三分之一至一半，剩余额度优先在反弹至 4.086–4.150 阻力带滞涨时加力执行，若反弹不来则按时间表机械完成，不赌单一窗口。收盘确认跌破 3.962（52周低点）无条件降…",
+   "stamp": "20261125_170345",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510300.SS_20261125_170345.json"
+  },
+  {
+   "id": "510500.SS_20261125_170301",
+   "ticker": "510500.SS",
+   "name": "南方中证500 ETF，上交所",
+   "date": "2026-11-25",
+   "rating": "增持",
+   "generated": "2026-11-25 17:03:01",
+   "target": "6.6",
+   "horizon": "3-6 months",
+   "summary": "对510500.SS执行有纪律的条件式分批建仓，方向为逐步增持但首笔仓位刻意压小：第一批不超过标准仓位20%，仅在5.92–6.05区间、单日成交缩至7亿份以下且当日不创新低时入场（约5.98），硬止损5.73、不摊平；第二批于RSI底背离获第二日确认、融券余额掉头下降且收复10EMA（6.23）时…",
+   "stamp": "20261125_170301",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510500.SS_20261125_170301.json"
+  },
+  {
+   "id": "512100.SS_20261125_165640",
+   "ticker": "512100.SS",
+   "name": "南方中证1000ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:56:40",
+   "target": "2.1",
+   "horizon": "3-6周",
+   "summary": "对512100.SS执行减仓避险，目标敞口压至标准配置的30%（区间30–50%，偏向保守下沿），并以11/13与11/11两轮复盘的教训修正执行：不再等待反弹至2.416的阶梯减仓——过去三个月反弹阶梯多次未兑现——而是即日起按市价分批减持，仅在小规模反弹时加速批次。若确需保留小盘敞口，上限压缩至…",
+   "stamp": "20261125_165640",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512100.SS_20261125_165640.json"
+  },
+  {
+   "id": "513970.SS_20261125_165442",
+   "ticker": "513970.SS",
+   "name": "Invesco Great Wall 恒生消费 ETF，上交所上市",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:54:42",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "对 513970.SS 在 0.805–0.8113（10 EMA 反抽位）区间分批将敞口降至标准配置的 50–60%；未持有者不新开多仓。收盘跌破 50 SMA 0.7843 一次性降至 30% 以下，收盘跌破 0.74 完全退出、不摊平。恢复路径分级确认：MACD 柱转正＋站稳 10 EMA＋南…",
+   "stamp": "20261125_165442",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513970.SS_20261125_165442.json"
+  },
+  {
+   "id": "159949.SZ_20261125_165245",
+   "ticker": "159949.SZ",
+   "name": "华安创业板50ETF",
+   "date": "2026-11-25",
+   "rating": "增持",
+   "generated": "2026-11-25 16:52:45",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_165245",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159949.SZ_20261125_165245.json"
+  },
+  {
+   "id": "159208.SZ_20261125_165221",
+   "ticker": "159208.SZ",
+   "name": "万万家 CNI 航天指数 ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:52:21",
+   "target": "未提供",
+   "horizon": "1-2 个月",
+   "summary": "Reduce 159208.SZ long exposure immediately to 50-60% of benchmark (e.g., standard 5% down to 2.5-3%), starting the first tranche now without waiting f…",
+   "stamp": "20261125_165221",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159208.SZ_20261125_165221.json"
+  },
+  {
+   "id": "159707.SZ_20261125_164541",
+   "ticker": "159707.SZ",
+   "name": "华宝中证800地产ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:45:41",
+   "target": "0.421",
+   "horizon": "3-6周（覆盖12月中央经济工作会议政策窗口）",
+   "summary": "159707.SZ减持至标准配置的20%-30%：先立即按市价减掉现有持仓的三分之一到二分之一（吸收11/13教训——空头排列且催化剂未落地时减仓必须当日执行，不留条件单等待反弹），剩余部分挂0.448-0.467（10 EMA 0.4483至布林中轨0.4669）反弹区分批限价减仓作为执行优化而非…",
+   "stamp": "20261125_164541",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159707.SZ_20261125_164541.json"
+  },
+  {
+   "id": "517520.SS_20261125_164305",
+   "ticker": "517520.SS",
+   "name": "Maxwealth CSI SHSZHK Gold Idsty Eq ETF，上交所",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:43:05",
+   "target": "1.53",
+   "horizon": "1-3 months",
+   "summary": "对517520.SS执行减持而非清仓：以自身标准配置为基准，将敞口降至约50%（区间50%-70%，向中位靠拢），第一批在现价1.44附近立即执行锁定风险，剩余两批挂1.48-1.53反弹区间择机成交，单笔不超计划量三分之一以应对约5%的日ATR。保留1.3866（布林下轨）日收盘有效跌破即无条件离…",
+   "stamp": "20261125_164305",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/517520.SS_20261125_164305.json"
+  },
+  {
+   "id": "563230.SS_20261125_164256",
+   "ticker": "563230.SS",
+   "name": "富国中证卫星产业ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:42:56",
+   "target": "未提供",
+   "horizon": "4-8周（战术性）",
+   "summary": "对563230.SS执行SELL：净敞口降至标准配置的0-15%（保留10-15%观察底仓而非全额清零），从当前0.79一线即启动首批减仓而非坐等0.851反弹。加装时间与价格双重下限：五个交易日内若始终无力站回0.82上方，或收盘跌破0.776（布林下轨）/0.773（52周低点），不等反弹立即降…",
+   "stamp": "20261125_164256",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/563230.SS_20261125_164256.json"
+  },
+  {
+   "id": "159326.SZ_20261125_164216",
+   "ticker": "159326.SZ",
+   "name": "华夏国证电网设备主题ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:42:16",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_164216",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159326.SZ_20261125_164216.json"
+  },
+  {
+   "id": "159840.SZ_20261125_163513",
+   "ticker": "159840.SZ",
+   "name": "工银瑞信瑞信新能源汽车电池ETF，深交所",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:35:13",
+   "target": "0.533（破位情形参考，下方无锚）",
+   "horizon": "1–3个月",
+   "summary": "",
+   "stamp": "20261125_163513",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159840.SZ_20261125_163513.json"
+  },
+  {
+   "id": "159857.SZ_20261125_163342",
+   "ticker": "159857.SZ",
+   "name": "天弘基金—创业板主题ETF，深交所",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:33:42",
+   "target": "0.505",
+   "horizon": "1-3 months",
+   "summary": "对 159857.SZ 执行减持而非清仓：立即以市价先减仓 25%（不等反抽——距 52 周低点一步之遥、ATR 3.6% 的环境下，市价压敞口是默认动作而非备选项）；若出现向 0.565（10 EMA）至 0.590（布林中轨）的 2–3 日反抽，完成 30–50% 总减幅，敞口降至标准配置的 5…",
+   "stamp": "20261125_163342",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159857.SZ_20261125_163342.json"
+  },
+  {
+   "id": "588830.SS_20261125_162855",
+   "ticker": "588830.SS",
+   "name": "汇添富上证科创板新能源ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:28:55",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_162855",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588830.SS_20261125_162855.json"
+  },
+  {
+   "id": "516860.SS_20261125_162154",
+   "ticker": "516860.SS",
+   "name": "博时中证金融科技主题ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:21:54",
+   "target": "0.8",
+   "horizon": "1-3 months",
+   "summary": "对516860.SS执行卖出/减仓退出，但采用中立派修正后的执行纪律：现价0.851（52周低点、贴布林下轨0.8504）执行风险收益比差，不要求恐慌性一次清仓——但依据11月10日\"依赖后续反弹窗口反而错失清出机会\"的既往教训，持有者应立即先行减掉现有仓位的25–50%，不要全额暴露等待可能永远不…",
+   "stamp": "20261125_162154",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516860.SS_20261125_162154.json"
+  },
+  {
+   "id": "513090.SS_20261125_161929",
+   "ticker": "513090.SS",
+   "name": "易方达中证香港证券投资主题ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:19:29",
+   "target": "1.51",
+   "horizon": "1-3个月（核心窗口为12月中央经济工作会议）",
+   "summary": "对513090.SS执行低配而非清仓：持有者将敞口削减至标准配置的约1/4，分两批执行——现价1.428附近先减一半锁定确定暴露，其余挂1.48–1.51反抽区执行；不押注反抽必然出现，若有效跌破1.428剩余仓位无条件止损（参考位不看1.38推算支撑），单笔风险控制在账户2%以内。保留约1/4小仓…",
+   "stamp": "20261125_161929",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513090.SS_20261125_161929.json"
+  },
+  {
+   "id": "513750.SS_20261125_161928",
+   "ticker": "513750.SS",
+   "name": "广发中证香港非银行金融主题ETF",
+   "date": "2026-11-25",
+   "rating": "减持",
+   "generated": "2026-11-25 16:19:28",
+   "target": "1.253",
+   "horizon": "1-3 months",
+   "summary": "对 513750.SS 执行减持（Underweight）：持有者不左侧补仓，利用反弹至 1.348–1.385（10 EMA 至布林中轨）区域分批减仓，将敞口降至标准配置的约 50–70%；若缩量阴跌直接逼近 1.301，则提前执行一半减仓量。残余持仓设硬性纪律：1.301 年内低点收盘失守即无条…",
+   "stamp": "20261125_161928",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513750.SS_20261125_161928.json"
+  },
+  {
+   "id": "588710.SS_20261125_161239",
+   "ticker": "588710.SS",
+   "name": "华泰柏瑞科创板半导体ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:12:39",
+   "target": "0.599",
+   "horizon": "1-3个月",
+   "summary": "对588710.SS执行卖出，采用中立派的\"比例化执行\"结构而非激进派的全额砸盘：立即（今日或明日开盘）先减持存量的一半左右，剩余仓位以条件单双向布防——反弹至0.699–0.703（10EMA/箱体下沿）减一档、0.819–0.836死叉区减最后一档；有效收盘跌破0.599为剩余仓位无条件清仓线，…",
+   "stamp": "20261125_161239",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588710.SS_20261125_161239.json"
+  },
+  {
+   "id": "588160.SS_20261125_161237",
+   "ticker": "588160.SS",
+   "name": "南方上证科创板新材料ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:12:37",
+   "target": "0.65",
+   "horizon": "1-2个月（覆盖12月FOMC与代工链情绪传导窗口）",
+   "summary": "对 588160.SS 执行 Sell：立即启动减仓而非等待反弹——利用任何向 0.750–0.777（10 EMA 至布林中轨）的反抽分批卖出，但设时间与价格双兜底：三个交易日内反弹未触及 0.72、或任一收盘价跌破 0.689（52 周低点），无论价位无条件将总敞口减至基准的 15%–30%。观…",
+   "stamp": "20261125_161237",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588160.SS_20261125_161237.json"
+  },
+  {
+   "id": "516020.SS_20261125_161201",
+   "ticker": "516020.SS",
+   "name": "华宝中证细分化工产业主题ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:12:01",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261125_161201",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516020.SS_20261125_161201.json"
+  },
+  {
+   "id": "512400.SS_20261125_161131",
+   "ticker": "512400.SS",
+   "name": "南方中证申万有色金属ETF",
+   "date": "2026-11-25",
+   "rating": "卖出",
+   "generated": "2026-11-25 16:11:31",
+   "target": "1.196",
+   "horizon": "1-3 months",
+   "summary": "对 512400.SS 执行 Sell：三份风控辩论罕见全员看空，方向无争议，且前次教训明确要求\"硬风控位直接视为执行价、不得用中期逻辑豁免短期趋势破位\"。持有者即刻减仓 60%–70%（执行参考价 1.213，11-25 收盘），残余 30%–40% 敞口设双轨硬止损：盘中放量击穿布林下轨 1.1…",
+   "stamp": "20261125_161131",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512400.SS_20261125_161131.json"
+  },
+  {
+   "id": "512690.SS_20261124_224754",
+   "ticker": "512690.SS",
+   "name": "鹏华国证白酒ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:47:54",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261124_224754",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512690.SS_20261124_224754.json"
+  },
+  {
+   "id": "512980.SS_20261124_224654",
+   "ticker": "512980.SS",
+   "name": "GF CSI Media ETF，上交所",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 22:46:54",
+   "target": "0.7",
+   "horizon": "1-3 months",
+   "summary": "对 512980.SS 执行卖出：第一笔不低于持有量 1/2 以盘中均价现价执行（避开开盘前三十分钟），剩余利用向 0.763（10 EMA）的反弹分批清仓；硬止损 0.70，叠加开盘跌破 0.71 即无条件清仓的跳空预案；五个交易日收盘跌破 0.72 将残余敞口压至 30% 以下乃至清零。新资金不…",
+   "stamp": "20261124_224654",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512980.SS_20261124_224654.json"
+  },
+  {
+   "id": "159869.SZ_20261124_223929",
+   "ticker": "159869.SZ",
+   "name": "华夏中证动漫游戏ETF",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 22:39:29",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261124_223929",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159869.SZ_20261124_223929.json"
+  },
+  {
+   "id": "159559.SZ_20261124_223623",
+   "ticker": "159559.SZ",
+   "name": "IGW 国新证券机器人产业 ETF，深交所",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:36:23",
+   "target": "1.008",
+   "horizon": "1-3 months",
+   "summary": "现价约1.108即刻执行减持，将159559.SZ敞口压至标准卫星配置（5–15%）的下限以下（观察底仓0–3%，组合其他持仓对关税敏感则直接归零）；借反弹至1.13–1.14压力带（下行50 SMA下方）加码减持，不追价压低卖出。11/25关税公告落地前不建任何新仓。剩余底仓硬止损1.008（有效…",
+   "stamp": "20261124_223623",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159559.SZ_20261124_223623.json"
+  },
+  {
+   "id": "588200.SS_20261124_223510",
+   "ticker": "588200.SS",
+   "name": "Harvest SSE STAR Chip Index Exchange Traded Fund / 科创芯片ETF，上海证券交易所",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:35:10",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261124_223510",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588200.SS_20261124_223510.json"
+  },
+  {
+   "id": "159732.SZ_20261124_223503",
+   "ticker": "159732.SZ",
+   "name": "华夏中证消费电子主题ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:35:03",
+   "target": "1.0",
+   "horizon": "1-3 months",
+   "summary": "对 159732.SZ 执行分批减持而非清仓：11-25 关税公告前先降至基准约 50%，公告后温和落地则待放量收复 1.00 减至基准 30-40%（总资产 1.5%-2%），恶化则当日减到位。剩余仓位机械纪律：0.907 收盘失守无条件清仓，不摊平。零持仓者不建左侧仓、不参与事件博弈。回补分级条…",
+   "stamp": "20261124_223503",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159732.SZ_20261124_223503.json"
+  },
+  {
+   "id": "159928.SZ_20261124_222835",
+   "ticker": "159928.SZ",
+   "name": "汇添富中证主要消费ETF，深交所",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 22:28:35",
+   "target": "0.674",
+   "horizon": "1–3个月",
+   "summary": "159928.SZ现价0.703不新开仓；11-25关税公告落地前将敞口降至标准仓位的70%，在0.712–0.7286阻力区分批减至60%，保留50%底仓。硬止损：收盘价有效跌破0.698（200 SMA三线重叠区）立即清空剩余头寸，不用盘中价、不二次确认。回补二选一：右侧需50/200 SMA金…",
+   "stamp": "20261124_222835",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159928.SZ_20261124_222835.json"
+  },
+  {
+   "id": "159688.SZ_20261124_222828",
+   "ticker": "159688.SZ",
+   "name": "华安恒生互联网科技业ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:28:28",
+   "target": "",
+   "horizon": "",
+   "summary": "对159688.SZ执行事件前减持而非清仓：在周二关税公告落地前，将持仓压至目标配置的20%–30%（吸收中立派对交易员30%–40%偏重的修正），以事件结果而非价格止损管理残余仓位——公告涉港则无条件再减至0%–10%；不涉港且价格守住0.5527则持有残余。明确否决0.5527作为盘中止损线（距…",
+   "stamp": "20261124_222828",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159688.SZ_20261124_222828.json"
+  },
+  {
+   "id": "159570.SZ_20261124_222757",
+   "ticker": "159570.SZ",
+   "name": "华宝中证港股通中国创新药物ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:27:57",
+   "target": "",
+   "horizon": "",
+   "summary": "对 159570.SZ 执行减持至标准配置的 50% 以下，但执行方式采纳中立派的分层方案而非单一等待反弹。具体动作：(1) 立即以限价 1.21~1.22 挂出第一批 10%~15% 的减仓单（该价位为 11-24 日内实际触及区间，兑现概率远高于 1.258）；(2) 其余仓位于反弹至 1.25…",
+   "stamp": "20261124_222757",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159570.SZ_20261124_222757.json"
+  },
+  {
+   "id": "512710.SS_20261124_222711",
+   "ticker": "512710.SS",
+   "name": "富国中证军工龙头ETF",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 22:27:11",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261124_222711",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512710.SS_20261124_222711.json"
+  },
+  {
+   "id": "510300.SS_20261124_221809",
+   "ticker": "510300.SS",
+   "name": "华泰柏瑞沪深300ETF",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 22:18:09",
+   "target": "4.28",
+   "horizon": "1-3 months",
+   "summary": "对510300.SS维持现有仓位：11月25日关税落地前不加仓、不清仓，避免在二元跳空事件前承担敞口变化风险。止损从盘中触发升级为\"收盘有效跌破3.99且放量\"的确认口径，并提前将跳空情形的实际滑点损失预算放宽至1.5%–2%。事件后按触发分步操作：若低开企稳、收盘收复4.033且不破3.99，可加…",
+   "stamp": "20261124_221809",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510300.SS_20261124_221809.json"
+  },
+  {
+   "id": "512100.SS_20261124_221807",
+   "ticker": "512100.SS",
+   "name": "中国南方中证1000ETF",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 22:18:07",
+   "target": "",
+   "horizon": "",
+   "summary": "对512100.SS维持现有持仓不动，标准配置100%以内运行；11-25关税公告落地前严禁建立任何新多头或新空头敞口。事件后48小时内按对称规则重估：放量收复2.45（10EMA 2.452）且日线站稳、MACD柱状图连续2日以上翻正、2.297-2.30支撑经二次回测不破——三条件满足其二，按多…",
+   "stamp": "20261124_221807",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512100.SS_20261124_221807.json"
+  },
+  {
+   "id": "510500.SS_20261124_221734",
+   "ticker": "510500.SS",
+   "name": "南方中证500ETF，沪市",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:17:34",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261124_221734",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510500.SS_20261124_221734.json"
+  },
+  {
+   "id": "513970.SS_20261124_221641",
+   "ticker": "513970.SS",
+   "name": "IGW 恒生消费 ETF，QDII，上交所",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:16:41",
+   "target": "0.848",
+   "horizon": "1-3 months",
+   "summary": "对 513970.SS 执行削减而非清仓：在现价区间（约 0.803）将敞口降至标准配置一半以下（基准 5% 者降至 1.5–2%），保留底仓以保留\"关税落地后利空出尽\"的反弹敞口；空仓者本次不建新仓。硬性风控线为 0.784（50 SMA，收盘有效确认；放量长阴击穿不等收盘），跌破后降至 1% 以…",
+   "stamp": "20261124_221641",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513970.SS_20261124_221641.json"
+  },
+  {
+   "id": "159208.SZ_20261124_221032",
+   "ticker": "159208.SZ",
+   "name": "万家国证航空航天指数ETF，深交所",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:10:32",
+   "target": "0.83",
+   "horizon": "1-3个月",
+   "summary": "对159208.SZ执行减持：首段减仓立即在现价0.861附近启动（吸取跳空风险应为基准情形的教训，不把七成减持全部押在0.956单一价位），先减至标准配置约50%，随后利用向0.88-0.90、0.956（布林中轨）、1.009（50 SMA）的任何反弹分档加码减仓，目标敞口降至标准配置的0-30…",
+   "stamp": "20261124_221032",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159208.SZ_20261124_221032.json"
+  },
+  {
+   "id": "159949.SZ_20261124_220950",
+   "ticker": "159949.SZ",
+   "name": "华安创业板50ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:09:50",
+   "target": "1.09",
+   "horizon": "1-3个月",
+   "summary": "对159949.SZ执行减持而非清仓：存量敞口降至标准配置的30%以下（如标准10%则持有≤3%），在1.045（10 EMA）至1.090（布林中轨）区间逢反弹分批卖出，任何收盘跌破0.989则无条件削至观察仓——打破\"禁止低位卖出\"的僵化条款，低位只减不加、破位无条件出。试探仓压缩至标准配置的2…",
+   "stamp": "20261124_220950",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159949.SZ_20261124_220950.json"
+  },
+  {
+   "id": "159707.SZ_20261124_220846",
+   "ticker": "159707.SZ",
+   "name": "华宝中证800地产ETF",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 22:08:46",
+   "target": "未提供",
+   "horizon": "1-3个月（覆盖12月中央经济工作会议窗口）",
+   "summary": "159707.SZ 现价0.430维持仓位不加不减：既不在距52周低点0.421仅2.3%的底部区域新增空头，也不做左侧抄底。向上按右侧触发条件执行——RSI站上30且连续2-3日收于10EMA（0.452）上方，或MACD金叉（需叠加放量收阳确认），或收储/专项债实质落地，满足其一可加仓至组合2%…",
+   "stamp": "20261124_220846",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159707.SZ_20261124_220846.json"
+  },
+  {
+   "id": "517520.SS_20261124_220617",
+   "ticker": "517520.SS",
+   "name": "Maxwealth CSI SHSZHK Gold Industry ETF，上交所",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 22:06:17",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "维持 517520.SS 现有约10%–15%标准黄金权益敞口不动，既不提前加仓也不主动清仓。设定双向触发：日线放量收复10日均线（约1.55）且MACD柱连续2–3日收敛转正后，分两批加仓至标准配置上限（1.55确认后第一批、站稳布林中轨1.62后第二批）；日线收盘有效跌破1.41（52周低点与布…",
+   "stamp": "20261124_220617",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/517520.SS_20261124_220617.json"
+  },
+  {
+   "id": "563230.SS_20261124_220255",
+   "ticker": "563230.SS",
+   "name": "富国中证卫星产业指数ETF，上交所",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 22:02:55",
+   "target": "未提供",
+   "horizon": "1-3个月",
+   "summary": "维持现有仓位（约1倍标准权重），不在0.794–0.834区间新增主仓，拒绝\"分批抄底+0.794紧止损\"方案。唯一有效入场触发器为放量（单日>2.5亿份）站上10EMA约0.864，届时分批上调至Overweight；0.794放量失守则无条件离场并下调至Underweight。任何试探性建仓不超…",
+   "stamp": "20261124_220255",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/563230.SS_20261124_220255.json"
+  },
+  {
+   "id": "159326.SZ_20261124_220225",
+   "ticker": "159326.SZ",
+   "name": "华夏中证电网设备主题ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:02:25",
+   "target": "未提供",
+   "horizon": "1-3个月",
+   "summary": "将159326.SZ减持至标准配置的30%–40%：按中立派的三段式执行——现价附近先减目标量的一半（降至约65%–70%），剩余部分利用反弹至1.350（10 EMA）与1.379（布林中轨）分批完成；任何收盘价跌破1.294立即机械清仓剩余仓位，不加缓冲、不等待二次确认。删除激进派提出的1.29…",
+   "stamp": "20261124_220225",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159326.SZ_20261124_220225.json"
+  },
+  {
+   "id": "516630.SS_20261124_220114",
+   "ticker": "516630.SS",
+   "name": "华夏中证云计算与大数据主题ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 22:01:14",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261124_220114",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516630.SS_20261124_220114.json"
+  },
+  {
+   "id": "159611.SZ_20261124_215905",
+   "ticker": "159611.SZ",
+   "name": "广发中证全指电力及电力设备ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 21:59:05",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "在1.028现价将159611.SZ头寸降至标准配置的约一半（若组合对该主题已有其他暴露或无法承受隔夜跳空，则降至最低档）；无持仓者不建仓。保留头寸设硬止损1.0198，鉴于隔夜美股期货-2.3%与关税升级消息，跌破即无条件退出、不赌假破位。回补仅在两种确认后进行：(a) 放量收盘站稳1.051之上…",
+   "stamp": "20261124_215905",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159611.SZ_20261124_215905.json"
+  },
+  {
+   "id": "159857.SZ_20261124_215526",
+   "ticker": "159857.SZ",
+   "name": "天弘恒生科技ETF，深交所",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 21:55:26",
+   "target": "0.525",
+   "horizon": "1-3 months",
+   "summary": "Reduce 159857.SZ exposure immediately: sell at least 1/3–1/2 of any position into intraday strength above 0.551 (per the validated lesson that rally-d…",
+   "stamp": "20261124_215526",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159857.SZ_20261124_215526.json"
+  },
+  {
+   "id": "159840.SZ_20261124_215449",
+   "ticker": "159840.SZ",
+   "name": "工银瑞信中证新能源汽车电池ETF",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 21:54:49",
+   "target": "0.5826",
+   "horizon": "1-3 months",
+   "summary": "维持159840.SZ现有仓位不动：标准配置持有者既不在52周低点脚下（距0.558仅约1%）割肉，也不在底背离确认条件零满足时抄底加仓；空仓者暂不新建多头。硬性止损钉在0.5509（布林下轨），收盘有效跌破0.5509-0.558区间即无条件减仓/退出——下方无成交密集区托底，不要抱侥幸。无法承受…",
+   "stamp": "20261124_215449",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159840.SZ_20261124_215449.json"
+  },
+  {
+   "id": "588830.SS_20261124_215259",
+   "ticker": "588830.SS",
+   "name": "汇华基金-汇华上证科创板新能源指数基金，SHH",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 21:52:59",
+   "target": "0.823",
+   "horizon": "1-3个月（以右侧确认信号触发为界）",
+   "summary": "对588830.SS立即执行减仓：持仓者将敞口降至标准配置的30%–40%（采纳中立派折中区间，拒绝激进派50%上限），保留的底仓以0.823（11-23低点）为绝对止损线，收盘跌破0.823且放量即果断降至最低配置，不留中间态拖延。严禁在0.850–0.833区域左侧新增买入。回补采用三级右侧确认…",
+   "stamp": "20261124_215259",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588830.SS_20261124_215259.json"
+  },
+  {
+   "id": "516860.SS_20261124_215205",
+   "ticker": "516860.SS",
+   "name": "博时金融科技ETF",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 21:52:05",
+   "target": "0.865",
+   "horizon": "1-3个月（战术性退出，右侧确认触发前不重评）",
+   "summary": "对516860.SS执行卖出：三方风控分析师罕见全票收敛于Sell方向，且既往教训明确要求\"三票一致+缩量反弹+资金流出时应立即给足Sell而非Underweight\"。执行上采用中立派的双轨制：一轨在0.91–0.945区域（10 EMA 0.9143至布林中轨约0.945）挂分批限价卖单，利用A…",
+   "stamp": "20261124_215205",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516860.SS_20261124_215205.json"
+  },
+  {
+   "id": "513090.SS_20261124_214742",
+   "ticker": "513090.SS",
+   "name": "易方达中证细分化工ETF，SHH",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 21:47:42",
+   "target": "1.43",
+   "horizon": "2-4周",
+   "summary": "对513090.SS执行低配：不在1.467现价恐慌性抛售（52周低点、RSI 23深度超卖、贴布林下轨杀跌动能有衰减迹象），但利用任何反弹至1.529（10EMA）–1.572（布林中轨）区域分批减仓，将敞口降至标准配置的0–15%；博反抽残仓以金额风险倒推——单笔风险不超过总资金0.5–1%（按…",
+   "stamp": "20261124_214742",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513090.SS_20261124_214742.json"
+  },
+  {
+   "id": "588160.SS_20261124_214631",
+   "ticker": "588160.SS",
+   "name": "南方中证科创新材料ETF，上交所科创板",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 21:46:31",
+   "target": "0.715",
+   "horizon": "2-4 周（关税清单落地窗口 + 两周预案失效检查点）",
+   "summary": "立即将 588160.SS 敞口压降至组合 1% 以下（象征性观察仓或不保留），不再新开多头；保留仓位以 0.665 固定价位硬性离场（限价单+止损单组合执行以吸收滑点），日线收盘跌破 0.704 即视为所有底部候选信号作废、多头敞口清零。本周关税清单为关键二元事件：若波及中国半导体供应链则评级进一…",
+   "stamp": "20261124_214631",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588160.SS_20261124_214631.json"
+  },
+  {
+   "id": "513750.SS_20261124_214538",
+   "ticker": "513750.SS",
+   "name": "广发中证香港非银金融ETF",
+   "date": "2026-11-24",
+   "rating": "卖出",
+   "generated": "2026-11-24 21:45:38",
+   "target": "1.33",
+   "horizon": "1-3 months",
+   "summary": "对513750.SS执行卖出（减仓至标准配置50%以下）：采纳中立派\"无条件先减\"的纪律，今日起不设条件地将敞口降至标准配置的60-70%，剩余仓位双轨执行——反弹至1.34-1.36（10 EMA 1.3583压制带）参考价1.35继续减持，1.317连续两日收盘失守且MACD持续发散则清减剩余持…",
+   "stamp": "20261124_214538",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513750.SS_20261124_214538.json"
+  },
+  {
+   "id": "512400.SS_20261124_214111",
+   "ticker": "512400.SS",
+   "name": "南方中证申万有色金属ETF",
+   "date": "2026-11-24",
+   "rating": "增持",
+   "generated": "2026-11-24 21:41:11",
+   "target": "1.534",
+   "horizon": "3-6 months",
+   "summary": "方向采纳多方、风控采纳保守/中立派修正版：在1.246附近仅以标准配置1/4-1/5（如标准5%则首批1-1.25%）建立左侧试探仓，最好等本周关税结果落地后再执行首批；止损1.221采用收盘口径且次日开盘无条件离场，总资金风险硬上限1%。在放量收复1.381中轨并伴随MACD金叉之前绝不加注（1.…",
+   "stamp": "20261124_214111",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512400.SS_20261124_214111.json"
+  },
+  {
+   "id": "516020.SS_20261124_214000",
+   "ticker": "516020.SS",
+   "name": "华宝中证细分化工产业主题ETF",
+   "date": "2026-11-24",
+   "rating": "减持",
+   "generated": "2026-11-24 21:40:00",
+   "target": "0.657",
+   "horizon": "1-3 months",
+   "summary": "对 516020.SS 执行两段式减持：关税公告落地前，于现价 0.678 附近先减持标准仓位的 20–25% 以买断缺口风险；剩余减持额度待反抽 0.70–0.718 压力带且无量时执行，0.718 附近完成，合计压至约一半核心观察仓。剩余仓位以 0.657 为硬止损（保守口径 0.647），收盘…",
+   "stamp": "20261124_214000",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516020.SS_20261124_214000.json"
+  },
+  {
+   "id": "588710.SS_20261124_213842",
+   "ticker": "588710.SS",
+   "name": "科创半导体设备ETF华泰柏瑞",
+   "date": "2026-11-24",
+   "rating": "持有",
+   "generated": "2026-11-24 21:38:42",
+   "target": "0.75",
+   "horizon": "数周至1-3个月（以0.75/0.683双向触发信号的兑现时间为准）",
+   "summary": "对588710.SS（科创半导体设备ETF，SHH）维持Hold：已持仓者保留现有仓位但严守不超过总组合5%的主题仓位上限，超出部分纪律性减持（此为纪律动作而非方向判断）；未持仓者不在箱体中段（现价0.710，距上下沿各约4%）新建仓位——此处入场无赔率优势。设定双向触发信号每日收盘核查：加仓触发为…",
+   "stamp": "20261124_213842",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588710.SS_20261124_213842.json"
+  },
+  {
+   "id": "159326.SZ_20261123_221640",
+   "ticker": "159326.SZ",
+   "name": "华夏中证电网设备主题ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 22:16:40",
+   "target": "1.296",
+   "horizon": "1-3个月",
+   "summary": "159326.SZ现价1.322，执行Underweight减仓：将敞口降至标准配置的50%以下（如标准5%则降至0–2.5%），在1.355（10 EMA）至1.383（布林中轨）反弹阻力带分批卖出，周一若因外围情绪高开则加速出货、只出不进。若五个交易日内价格触及不到1.355，无论点位启动减仓至…",
+   "stamp": "20261123_221640",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159326.SZ_20261123_221640.json"
+  },
+  {
+   "id": "159869.SZ_20261123_221017",
+   "ticker": "159869.SZ",
+   "name": "华夏中证动漫游戏ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 22:10:17",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_221017",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159869.SZ_20261123_221017.json"
+  },
+  {
+   "id": "512980.SS_20261123_220957",
+   "ticker": "512980.SS",
+   "name": "传媒ETF广发",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 22:09:57",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_220957",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512980.SS_20261123_220957.json"
+  },
+  {
+   "id": "159732.SZ_20261123_220505",
+   "ticker": "159732.SZ",
+   "name": "华夏中证消费电子ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 22:05:05",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_220505",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159732.SZ_20261123_220505.json"
+  },
+  {
+   "id": "159559.SZ_20261123_220422",
+   "ticker": "159559.SZ",
+   "name": "景顺长城国证机器人产业ETF",
+   "date": "2026-11-23",
+   "rating": "持有",
+   "generated": "2026-11-23 22:04:22",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "维持现有仓位、不追高不杀跌：无持仓者暂不建仓，有持仓者按标准仓位持有，不因11月23日放量长阳追加。决策权交给预设价格信号：收盘有效跌破1.00且次日无法收复（双底颈线失守），减仓至不超过标准仓位的1/3；放量突破1.14–1.16三重压力带并回踩不破，仓位提升至标准的1.0–1.1倍，止损上移至突…",
+   "stamp": "20261123_220422",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159559.SZ_20261123_220422.json"
+  },
+  {
+   "id": "159688.SZ_20261123_220256",
+   "ticker": "159688.SZ",
+   "name": "华安恒生互联网科技业ETF，QDII",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 22:02:56",
+   "target": "0.554",
+   "horizon": "1-3 个月",
+   "summary": "对 159688.SZ 执行减配至清仓级卖出：主体减持在现价 0.571 附近一次性完成，残余观察仓压缩至标准仓位 15-20%，0.554 为硬性风控线，有效跌破且放量即直接清零而非再减一半，以应对 QDII 隔夜跳空穿仓风险（ATR 占价比 3.3%）。0.614-0.642 压力带的反抽卖出仅…",
+   "stamp": "20261123_220256",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159688.SZ_20261123_220256.json"
+  },
+  {
+   "id": "588200.SS_20261123_220250",
+   "ticker": "588200.SS",
+   "name": "华夏/嘉实·科创板芯片ETF，沪市",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 22:02:50",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_220250",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588200.SS_20261123_220250.json"
+  },
+  {
+   "id": "159570.SZ_20261123_215754",
+   "ticker": "159570.SZ",
+   "name": "港股通创新药ETF汇添富",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 21:57:54",
+   "target": "1.15",
+   "horizon": "1-2 months",
+   "summary": "评级Sell：三位风控罕见全部指向卖出方向，执行分两段——立即在市价1.220附近先减大部分敞口（降至标准配置的20%以下），剩余挂反弹至1.272（10EMA）～1.301（布林中轨）区间的限价减仓单，并设10～15个交易日的时间止损：反弹未触及区间即全部市价离场。保留不超过标准配置15～20%的…",
+   "stamp": "20261123_215754",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159570.SZ_20261123_215754.json"
+  },
+  {
+   "id": "159928.SZ_20261123_215700",
+   "ticker": "159928.SZ",
+   "name": "消费ETF汇添富",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 21:57:00",
+   "target": "",
+   "horizon": "",
+   "summary": "对159928.SZ执行减仓而非清仓，目标降至标准配置的约40%–50%（激进派50%、保守派30–40%、中立派40–50%三档的交集重心）。执行方式：利用价格反弹逼近0.707~0.712五连败阻力区分批卖出，不等0.712；现价0.702附近贴近200日均线，阻力区流动性好于假突破位。卖出后保…",
+   "stamp": "20261123_215700",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159928.SZ_20261123_215700.json"
+  },
+  {
+   "id": "512710.SS_20261123_215608",
+   "ticker": "512710.SS",
+   "name": "富国中证军工龙头ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 21:56:08",
+   "target": "0.519",
+   "horizon": "1-3 months",
+   "summary": "对 512710.SS 执行卖出：通过分层减持将仓位降至标准配置的 20%–40%，0.545–0.550 区间即启动第一批，不必死等 0.567 反抽；日收盘跌破 0.519 无条件清零残余仓位。未持仓者不建新多头；右侧三条件齐备后首笔回补也不超过半仓并配 1.5×ATR 止损。时间窗口 1–3 …",
+   "stamp": "20261123_215608",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512710.SS_20261123_215608.json"
+  },
+  {
+   "id": "510300.SS_20261123_215513",
+   "ticker": "510300.SS",
+   "name": "沪深300ETF华泰柏瑞",
+   "date": "2026-11-23",
+   "rating": "持有",
+   "generated": "2026-11-23 21:55:13",
+   "target": "4.1",
+   "horizon": "2-6 weeks",
+   "summary": "对510300.SS维持现有标准配置仓位不变（相对基准约100%权重，不加不减），既不在金叉未确认的空头排列中左侧重仓，也不在政策底+资金承接共振处清仓。双向纪律触发：反弹至4.099-4.10（BOLL中轨）上方且成交未有效放大时减持不超过标准仓位的10-15%；收盘跌破3.97（52周低点/11…",
+   "stamp": "20261123_215513",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510300.SS_20261123_215513.json"
+  },
+  {
+   "id": "510500.SS_20261123_215140",
+   "ticker": "510500.SS",
+   "name": "南方中证500ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 21:51:40",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "对510500.SS执行减持：将配置降至标准宽基ETF权重的0.5倍以下（如标准10%降至≤5%），采用双轨执行——约半数减持量立即按6.160附近市价完成，其余挂入6.48–6.70反抽区间（6.70前平台为主要完成位）。剩余观察仓以5.937收盘确认硬止损，跌破即无条件降至最低保留水平（约0.2…",
+   "stamp": "20261123_215140",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510500.SS_20261123_215140.json"
+  },
+  {
+   "id": "512100.SS_20261123_215046",
+   "ticker": "512100.SS",
+   "name": "中国南方中证1000指数ETF，上交所",
+   "date": "2026-11-23",
+   "rating": "持有",
+   "generated": "2026-11-23 21:50:46",
+   "target": "2.565",
+   "horizon": "1-3 months",
+   "summary": "Maintain current 512100.SS exposure with no adds and no full exit, capped at 50% of standard allocation (e.g., 5-10% of portfolio). Set binary resolut…",
+   "stamp": "20261123_215046",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512100.SS_20261123_215046.json"
+  },
+  {
+   "id": "513970.SS_20261123_215005",
+   "ticker": "513970.SS",
+   "name": "IGW 恒生消费 ETF，QDII，上交所",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 21:50:05",
+   "target": "0.845",
+   "horizon": "1-3 months",
+   "summary": "对 513970.SS 执行减仓而非清仓：现价 0.807 附近将敞口降至标准配置的 50%–70%（满配者减去约三分之一），不在 0.840–0.849 阻力带下方追买；若价格反弹至 0.845 且成交量未显著放大（反弹段基准 0.9–1.1 亿股），进一步降至 30%–40%。风控线：收盘跌破 …",
+   "stamp": "20261123_215005",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513970.SS_20261123_215005.json"
+  },
+  {
+   "id": "512690.SS_20261123_214803",
+   "ticker": "512690.SS",
+   "name": "鹏华中证酒ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 21:48:03",
+   "target": "0.404",
+   "horizon": "1–3 months",
+   "summary": "对 512690.SS 执行减持而非清仓：现有持仓在现价 0.432 附近完成主体减仓，保留不超过总量 1/3 的份额挂 0.4375（10 EMA/布林中轨阻力）条件单，三个交易日未触及则按市价补齐，最终敞口压至标准配置的 1/3 以内；0.4242（50 SMA）为硬性风控线，收盘跌破再降至 1…",
+   "stamp": "20261123_214803",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512690.SS_20261123_214803.json"
+  },
+  {
+   "id": "159949.SZ_20261123_214459",
+   "ticker": "159949.SZ",
+   "name": "华安创业板50ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 21:44:59",
+   "target": "1.085",
+   "horizon": "1-3 months",
+   "summary": "对159949.SZ执行卖出：持仓者立即利用当前反弹（1.02附近）开始分批离场，第一目标减仓区1.08-1.10（VWMA 1.0848/套牢盘密集区），若反弹乏力则不等目标价直接市价削减；收盘跌破0.97且次日不收回则无条件清零剩余头寸。未持仓者不建立任何多头敞口——包括原计划中的10-15%战…",
+   "stamp": "20261123_214459",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159949.SZ_20261123_214459.json"
+  },
+  {
+   "id": "159208.SZ_20261123_214426",
+   "ticker": "159208.SZ",
+   "name": "万家CNI航空航天ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 21:44:26",
+   "target": "0.817",
+   "horizon": "1-3个月",
+   "summary": "对159208.SZ执行分批卖出：立即在当前0.852附近减持约50%的持仓（两侧论点的最大公约数，且吸取前期教训——不依赖反弹挂单来削减敞口）；剩余仓位在0.910（10日EMA）附近挂单等待反抽，并附加时间止损——若5个交易日内反弹未触及0.910，剩余仓位市价了结；取消0.962固定目标（布林…",
+   "stamp": "20261123_214426",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159208.SZ_20261123_214426.json"
+  },
+  {
+   "id": "159707.SZ_20261123_214310",
+   "ticker": "159707.SZ",
+   "name": "华宝中证800地产ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 21:43:10",
+   "target": "0.421",
+   "horizon": "1-3个月（以12月20日LPR报价及0.430/0.473双向触发为界）",
+   "summary": "对159707.SZ执行低配减仓：自今日起3-5个交易日内分批卖出至标准配置的0-15%（取观察仓下限），不等反弹作为出货前提；若盘中放量反弹至0.457上方则加速清减剩余仓位。收盘跌破0.430无条件清零残余仓位。撤出资金一半进低波动工具、一半作待命资金，禁止追高AI拥挤主线，禁止在0.43-0.…",
+   "stamp": "20261123_214310",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159707.SZ_20261123_214310.json"
+  },
+  {
+   "id": "563230.SS_20261123_213905",
+   "ticker": "563230.SS",
+   "name": "富国中证卫星产业ETF / Fullgoal CSI Satellite Industry ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 21:39:05",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_213905",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/563230.SS_20261123_213905.json"
+  },
+  {
+   "id": "516020.SS_20261123_213724",
+   "ticker": "516020.SS",
+   "name": "华宝中证细分化工产业主题ETF",
+   "date": "2026-11-23",
+   "rating": "持有",
+   "generated": "2026-11-23 21:37:24",
+   "target": "0.7207",
+   "horizon": "1-3个月（至确认信号或止损触发）",
+   "summary": "维持现有516020.SS敞口不动，不在当前0.684一线新增买入。三条铁律执行：（1）放量收盘跌破0.669立即无条件清仓，不等二次确认；（2）超配部分利用0.70—0.72区间反弹减仓，压回标准化工配置50%以内；（3）仅在放量收复0.7207且MACD柱状图连续转正后才加仓至不超过标准配置50…",
+   "stamp": "20261123_213724",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516020.SS_20261123_213724.json"
+  },
+  {
+   "id": "517520.SS_20261123_213654",
+   "ticker": "517520.SS",
+   "name": "Maxwealth CSI SHSZHK Gold Idsty Eq ETF，上交所",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 21:36:54",
+   "target": "1.41",
+   "horizon": "3-6 weeks",
+   "summary": "三位风控分析师罕见地一致给出卖出结论，方向无争议，执行层面采纳中立派对两位同事的有效修正：已持仓者立即在现价（约1.520）分批减仓，不等待1.570-1.631反弹区（前四轮教训反复证明\"逢反弹减仓\"的反弹从未到来，拖延成本约每日一个ATR）；残余底仓不超过基准权重的1/3，清仓线分级设置：收盘有…",
+   "stamp": "20261123_213654",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/517520.SS_20261123_213654.json"
+  },
+  {
+   "id": "516630.SS_20261123_190940",
+   "ticker": "516630.SS",
+   "name": "华夏中证云计算与大数据ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 19:09:40",
+   "target": "",
+   "horizon": "",
+   "summary": "对 516630.SS 执行 Sell——不建立任何新增多头，已持仓者立即将敞口降至标准配置约 50%，反弹至 1.3119–1.3543 三重压制带（10 EMA 1.3119 / VWMA / 布林中轨 1.3543）分批继续减至约 40%；日收盘跌破 1.190（52 周低点）无条件清仓剩余全…",
+   "stamp": "20261123_190940",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516630.SS_20261123_190940.json"
+  },
+  {
+   "id": "159857.SZ_20261123_190849",
+   "ticker": "159857.SZ",
+   "name": "天弘资产管理——港股相关ETF",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 19:08:49",
+   "target": "",
+   "horizon": "",
+   "summary": "对 159857.SZ（天弘光伏 ETF，现价 0.552）执行分批减仓，将敞口降至标准配置的 50% 以下：今日先减至约标准权重的 60% 锁定主要风险；剩余部分挂 0.576（10 EMA）至 0.5965（布林中轨）反弹减仓带，并设五个交易日的时间止损——若反弹带未触发且价格未创新低，则在 0…",
+   "stamp": "20261123_190849",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159857.SZ_20261123_190849.json"
+  },
+  {
+   "id": "159611.SZ_20261123_190747",
+   "ticker": "159611.SZ",
+   "name": "",
+   "date": "2026-11-23",
+   "rating": "买入",
+   "generated": "2026-11-23 19:07:47",
+   "target": "1.052",
+   "horizon": "1-3 months",
+   "summary": "在1.018–1.020区间限价分批建仓：首批约目标仓位的60%（保守可降至50%），回踩1.018缩量企稳补足剩余，总敞口控制在标准仓位的1.0–1.25倍；硬止损1.010（收盘确认），软触发——收盘跌破1.018且次日未快速收复先减至半仓；仅在放量收盘站上1.055且MACD柱体重新扩张时才加…",
+   "stamp": "20261123_190747",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159611.SZ_20261123_190747.json"
+  },
+  {
+   "id": "159840.SZ_20261123_190200",
+   "ticker": "159840.SZ",
+   "name": "工银瑞信国证新能源车电池ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 19:02:00",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_190200",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159840.SZ_20261123_190200.json"
+  },
+  {
+   "id": "588830.SS_20261123_190154",
+   "ticker": "588830.SS",
+   "name": "鹏华上证科创板新能源指数基金",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 19:01:54",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_190154",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588830.SS_20261123_190154.json"
+  },
+  {
+   "id": "516860.SS_20261123_190016",
+   "ticker": "516860.SS",
+   "name": "博时金融科技ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 19:00:16",
+   "target": "0.894",
+   "horizon": "1-3个月",
+   "summary": "卖出516860.SS：现有持仓在0.92–0.95区间（10EMA至布林中轨压力带）分批减持离场，主力仓位降至零或最低档；若0.873–0.876（布林下轨/前低重合区）收盘跌破，剩余仓位无条件立即清零，不等待名义止损价——ATR约3.5%意味着隔夜跳空可能直接穿透止损。不建立任何新多头仓位。若必…",
+   "stamp": "20261123_190016",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/516860.SS_20261123_190016.json"
+  },
+  {
+   "id": "512880.SS_20261123_185319",
+   "ticker": "512880.SS",
+   "name": "证券ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 18:53:19",
+   "target": "未提供",
+   "horizon": "1–2周（变盘窗口触发条件驱动，触发后重估）",
+   "summary": "将512880.SS减仓至标准配置约50%，成本高于1.02者利用0.994–1.005反弹区间减至35%–40%；跌破0.959放量清仓且禁止在0.962–0.965左侧接刀，须等二次探底出清并出现放量止跌结构后再评估；回补采取分层确认——放量收盘站上1.00先回补至标准仓位70%，随后两日不回0…",
+   "stamp": "20261123_185319",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512880.SS_20261123_185319.json"
+  },
+  {
+   "id": "513090.SS_20261123_185315",
+   "ticker": "513090.SS",
+   "name": "交银施罗德中证海外中国互联网ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 18:53:15",
+   "target": "",
+   "horizon": "",
+   "summary": "对513090.SS执行卖出，但采用分批限价阶梯而非恐慌市价单：立即在1.489–1.50区间以限价单先减掉计划减仓量的一半（采纳中立派“落袋为安”档，吸取前几轮“反弹窗口比预期更短、首笔减仓应前置”的教训）；剩余部分挂1.543一档、1.578–1.586（布林中轨/11月中旬平台）一档的限价出货…",
+   "stamp": "20261123_185315",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513090.SS_20261123_185315.json"
+  },
+  {
+   "id": "513750.SS_20261123_185245",
+   "ticker": "513750.SS",
+   "name": "广发中证港股通非银ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 18:52:45",
+   "target": "",
+   "horizon": "",
+   "summary": "对 513750.SS 执行卖出而非继续持有：立即以市价减持约 1/3（无条件执行，不等待反弹），第二批约 1/3 挂向 1.365（10 EMA 动态阻力）分批执行但附双重失效条款——三个交易日内未触及 1.365 或价格先行跌破 1.305 布林下轨即转入市价离场，不恋战；残余 1/3 设 1.…",
+   "stamp": "20261123_185245",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513750.SS_20261123_185245.json"
+  },
+  {
+   "id": "588710.SS_20261123_184456",
+   "ticker": "588710.SS",
+   "name": "科创板ETF，人民币计价",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 18:44:56",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_184456",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588710.SS_20261123_184456.json"
+  },
+  {
+   "id": "512400.SS_20261123_184418",
+   "ticker": "512400.SS",
+   "name": "有色金属ETF",
+   "date": "2026-11-23",
+   "rating": "卖出",
+   "generated": "2026-11-23 18:44:18",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261123_184418",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512400.SS_20261123_184418.json"
+  },
+  {
+   "id": "588160.SS_20261123_184332",
+   "ticker": "588160.SS",
+   "name": "科创50/科创板ETF类产品",
+   "date": "2026-11-23",
+   "rating": "减持",
+   "generated": "2026-11-23 18:43:33",
+   "target": "0.694",
+   "horizon": "1-3 months（至三重确认或 0.694 破位两者之一出现）",
+   "summary": "Reduce 588160.SS exposure to 50%-60% of standard size via staged selling into any rally toward 0.768-0.786 (10 EMA to Bollinger mid-band), with limit …",
+   "stamp": "20261123_184332",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/fundamentals.md",
+      "label": "基本面分析师"
+     },
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     },
+     {
+      "path": "1_analysts/news.md",
+      "label": "新闻分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588160.SS_20261123_184332.json"
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradingAgents 分析报告站</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="logo">📈</span>
+      <div>
+        <h1>TradingAgents 分析报告</h1>
+        <p class="subtitle" id="subtitle">加载中…</p>
+      </div>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="打开菜单">☰</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="side-controls">
+      <div class="search-box">
+        <input type="search" id="search" placeholder="搜索代码 / 名称 / 评级…" autocomplete="off">
+      </div>
+      <select id="ratingFilter" class="rating-select" title="按评级筛选">
+        <option value="">全部评级</option>
+        <option value="买入">买入</option>
+        <option value="增持">增持</option>
+        <option value="持有">持有</option>
+        <option value="减持">减持</option>
+        <option value="卖出">卖出</option>
+      </select>
+    </div>
+    <div class="side-row">
+      <select id="dateFilter" class="rating-select date-select" title="按日期筛选">
+        <option value="">全部日期</option>
+        <option value="7d">近 7 天</option>
+        <option value="30d">近 30 天</option>
+      </select>
+    </div>
+    <div class="summary-entry active" id="summaryEntry">
+      <span class="se-icon">📋</span>
+      <span class="se-body"><b>总结</b><small>近一周总结 · 整体策略</small></span>
+    </div>
+    <div class="summary-entry" id="featuredEntry">
+      <span class="se-icon">⭐</span>
+      <span class="se-body"><b>精选</b><small>精选标的 · 组合决策</small></span>
+    </div>
+    <div class="section-label">📑 专题报告</div>
+    <nav class="report-list" id="specialList"></nav>
+    <div class="section-label">📄 每日报告文档</div>
+    <nav class="report-list" id="docsList"></nav>
+    <div class="section-label">🤖 TradingAgents 报告</div>
+    <nav class="report-list" id="reportList"></nav>
+  </aside>
+  <main class="main" id="main">
+    <div class="placeholder" id="placeholder">
+      <div class="placeholder-icon">📊</div>
+      <p>从左侧选择一份报告查看详情</p>
+    </div>
+  </main>
+</div>
+<div class="sidebar-mask" id="sidebarMask"></div>
+
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/lightweight-charts.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
