@@ -1,7 +1,15 @@
 {
- "generatedAt": "2026-11-25T16:42:27",
- "count": 40,
+ "generatedAt": "2026-11-26T17:17:01",
+ "count": 41,
  "docs": [
+  {
+   "id": "local-20261126-171701-9c3b3d",
+   "title": "Finance报告2026-11-26 17:10:00 claude",
+   "url": "",
+   "kind": "Finance 报告",
+   "date": "2026-11-26",
+   "path": "tdocs/local-20261126-171701-9c3b3d.md"
+  },
   {
    "id": "local-20261125-162431-80967d",
    "title": "ETF技术分析报告 2026-11-25 16:24:31 小天-omo",
