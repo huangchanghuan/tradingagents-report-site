@@ -584,6 +584,26 @@ def main() -> int:
 
     entries.sort(key=lambda e: e.get("stamp", ""), reverse=True)
 
+    # 名称兜底：同一 ticker 只要任意一份报告提取到了中文名，就回填到空 name 的报告。
+    # 部分跑批只启用 market 分析师，报告标题不含 "代码（中文名）"，正则提取不到名称；
+    # 前端分组标题取最新报告的 name，为空时会回退显示代码。
+    names_by_ticker: dict[str, str] = {}
+    for e in entries:
+        nm = (e.get("name") or "").strip()
+        ticker = e.get("ticker") or ""
+        if nm and ticker and not names_by_ticker.get(ticker):
+            names_by_ticker[ticker] = nm
+    for e in entries:
+        if (e.get("name") or "").strip():
+            continue
+        nm = names_by_ticker.get(e.get("ticker") or "")
+        if nm:
+            e["name"] = nm
+            # 同步写回 manifest，避免下次增量同步跳过该报告时又取回空名称
+            rid = e.get("id")
+            if rid in manifest:
+                manifest[rid]["entry"] = e
+
     brief, strategy = build_brief_and_strategy(entries)
 
     INDEX_JSON.write_text(
