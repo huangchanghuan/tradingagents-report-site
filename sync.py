@@ -24,6 +24,7 @@
 
 import argparse
 import json
+import os
 import re
 import shutil
 import sys
@@ -32,7 +33,8 @@ import urllib.request
 from datetime import datetime, timedelta
 from pathlib import Path
 
-SRC = Path("/home/sun/.tradingagents/logs/reports")
+# 报告源目录: Windows 用 %USERPROFILE%\.tradingagents\logs\reports, 其他环境用原 Linux 路径
+SRC = Path.home() / ".tradingagents" / "logs" / "reports" if os.name == "nt" else Path("/home/sun/.tradingagents/logs/reports")
 ROOT = Path(__file__).resolve().parent
 SITE = ROOT / "site"
 DATA_DIR = SITE / "data"
@@ -43,7 +45,9 @@ INDEX_JSON = DATA_DIR / "reports.json"
 KLINE_DIR = SITE / "data" / "kline"
 
 # LLM 网关（点位提取用）：读 TradingAgents 项目的 .env
-TA_ENV = Path("/home/sun/Desktop/project/tradingagents/.env")
+# Windows: C:\Users\<用户>\Desktop\project\TradingAgents\.env（与报告站同级的 TradingAgents 仓库）
+_TA_ENV_WIN = Path.home() / "Desktop" / "project" / "TradingAgents" / ".env"
+TA_ENV = _TA_ENV_WIN if os.name == "nt" else Path("/home/sun/Desktop/project/tradingagents/.env")
 GATEWAY_BASE = "http://127.0.0.1:3425/v1"
 GATEWAY_MODEL = "group/combo-flash"
 # K线/点位辅助数据只给当日报告生成（历史报告无意义，跳过省时省 LLM 调用）

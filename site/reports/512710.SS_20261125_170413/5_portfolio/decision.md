@@ -1,9 +1,0 @@
-**评级**：卖出
-
-**执行摘要**：Do not initiate any new longs in 512710.SS at the current 0.526 (52-week low zone). Reduce existing exposure by 1/3 to 1/2 on rebounds into 0.556-0.585 (10 EMA to Bollinger mid-band); if the rebound does not appear within five trading sessions, execute half the planned reduction at market. On a first daily close below 0.519, make a pre-emptive cut of 1/4 to 1/2 of the remainder; on a second confirming close, clear to a floor of 10-15% or below. Re-entry requires RSI bullish divergence plus MACD histogram contraction plus a daily close above 0.556. Park freed capital in low-volatility assets with no forced redeployment. Key risk levels: 0.556/0.585 trim zone, 0.519 hard line (no historical support below), 5.1% US 10Y macro switch. Horizon 1-3 months.
-
-**投资论点**：本次裁定为 Sell 而非研究经理的 Underweight，依据有三。第一，方向共识罕见地完整：激进、保守、中立三位风控最终提案全部落地为卖出/深度减配，交易员明确输出 Sell，分歧仅剩执行细节——按 11-06 复盘教训（"三派方向一致时应按保守派的更深度减持执行而非采纳温和折中"）与 11-11 复盘教训（"高波动品种止损线应无条件执行而非依赖降敞口兜底"），共识方向应被足额定价。第二，六项技术证据同向下行且无任何止跌信号：0.526 收于当日最低，空头排列（10 EMA 0.556 下方约 5.4%、200 SMA 下方约 24.4%），MACD 柱状图由 -0.0005 扩张至 -0.0071，RSI 28.34 无底背离，布林贴下轨且带宽扩张，11-16 放量 9.62 亿份阴线后价格未收复，南向 30 日净流出 166.06 亿元。多方要求的"均值回归燃料"三要素（底背离、缩量企稳、MACD 收敛）一个都不存在；多方 0.519-0.535 建仓方案止损距离仅 0-1.2%，小于单日 ATR（0.019，现价 3.6%，较 10 月扩张 41%），结构性不可执行。第三，执行层面采纳三方折中的最优组合：保留派 0.519-0.585 的反弹减仓窗口（避免在距 52 周低点仅 1.2% 的极端超卖位被动杀跌），采纳保守派的五日时间止损（堵住无时限等待退化为满仓滞留的软肋），0.519 破位采用中立派的两段式响应（首日预防性减仓 + 次日确认清至下限），替代保守派的单日全减——因 ATR 0.019 下单日响应会产生假信号触发风险，中立派对这一点的反驳成立。残仓不高于原仓位的 10-15%（较中立派建议的 25% 底仓更紧，依据前两次"保留残仓偏保守"的教训），仅作为估值低位 + "十五五"预期的观察期权。宏观背景两面拼合：美联储仍处高利率（12 月降息概率仅 0.7%，美债 4.92% 距 5.1% 警戒线不足 20bp），但收益率已自 5.29% 回落 37bp，逆风存在但未加速——支持分批有节奏减配而非一次性清零。改变评级的条件：三重确认信号（底背离 + MACD 柱状图连续收敛 + 日线收盘站回 0.556）齐备则回升至中性以上；南向资金转为持续净流入且超卖指标背离、或美债向 4.7% 以下持续回落，则放缓减仓节奏；美债重返 5.1% 上方且 A 股风险偏好恶化，则将底仓清零。数据缺口需明示：本 ETF 缺自身申赎资金流、净值与折溢价数据，南向流出为全市场口径代理推断，军工订单与成分股基本面无法核验，本判断以价格与技术结构为主。
-
-**目标价**：0.5
-
-**期限**：1-3 months
