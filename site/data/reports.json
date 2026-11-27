@@ -1,16 +1,16 @@
 {
- "generatedAt": "2026-11-26T18:54:04",
+ "generatedAt": "2026-11-27T16:34:44",
  "source": "C:\\Users\\Administrator\\.tradingagents\\logs\\reports",
- "count": 12,
+ "count": 18,
  "brief": {
-  "start": "11-19",
-  "end": "11-26",
-  "reportCount": 12,
+  "start": "11-20",
+  "end": "11-27",
+  "reportCount": 18,
   "stockCount": 6,
   "buyCount": 0,
   "overweightCount": 0,
-  "holdCount": 0,
-  "sellCount": 6,
+  "holdCount": 3,
+  "sellCount": 3,
   "bigChance": [
    "指数深坑回调，对比历史和各种数据，直接重仓杠杆买指数反弹，反弹减仓兑现。"
   ],
@@ -23,15 +23,405 @@
   "failLesson": "必须有计划。盈利后，最重要的是锁住利润，重点考虑什么时候离场，不要变成亏本了。"
  },
  "strategy": [
-  "市场判断：空头主导，市场环境很差——近一周 买入 0 / 增持 0 / 中性 0 / 减持·卖出 6（平均评级分 -1.5）。",
+  "市场判断：空头主导，市场环境很差——近一周 买入 0 / 增持 0 / 中性 3 / 减持·卖出 3（平均评级分 -0.8）。",
   "是否右侧：尚在左侧，不要抄底，不做的模式不做，等待放量收复关键均线再入场。",
   "仓位建议：空仓止损，严格执行止损纪律，耐心等待右侧信号。",
   "若只有空仓和满仓两个选择：空仓。",
-  "风险纪律：510500.SS、512100.SS、510300.SS、159949.SZ、513750.SS 评级偏空，已持仓的立即严格执行止损，未持仓的不要接飞刀。",
+  "风险纪律：510300.SS、159949.SZ、588200.SS 评级偏空，已持仓的立即严格执行止损，未持仓的不要接飞刀。",
   "评级阶梯：Buy（买入）→ Overweight（增持）→ Hold（持有）→ Reduce（减持）→ Sell（卖出）；买入=标准配置甚至满配立即建仓，增持=分批小仓位挂确认条件，持有=不新开仓。",
   "（以上为基于近一周报告评级的规则化推断，不构成投资建议）"
  ],
  "reports": [
+  {
+   "id": "510300.SS_20261127_162540",
+   "ticker": "510300.SS",
+   "name": "华泰柏瑞沪深300ETF",
+   "date": "2026-11-27",
+   "rating": "减持",
+   "generated": "2026-11-27 16:25:40",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "对 510300.SS 执行减仓而非清仓:若为标准配置,先在当前价(4.16 附近)完成计划减仓量的一半,剩余部分挂 4.20-4.25 区间分批执行,总体降至标准配置的 30%-50%;若空仓或已低配则维持现状,不追高、不新开仓。残余持仓以收盘跌破 3.955 作为二次减仓/降至最低配置的触发线;…",
+   "stamp": "20261127_162540",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510300.SS_20261127_162540.json"
+  },
+  {
+   "id": "510500.SS_20261127_162505",
+   "ticker": "510500.SS",
+   "name": "南方中证500ETF",
+   "date": "2026-11-27",
+   "rating": "持有",
+   "generated": "2026-11-27 16:25:05",
+   "target": "未提供",
+   "horizon": "短期(数周,等待触发条件)",
+   "summary": "维持 510500.SS 现有仓位不变,不追涨也不杀跌。以分层的条件规则替代方向性押注:若价格回踩不破 10 日 EMA(约 6.21,需每日更新)且 MACD 柱状图不再转负,可小幅加仓至标准配置的约 1.1 倍;若跌破 6.0 并逼近 5.834-5.874,减仓至标准配置的 0.7 倍。止损距…",
+   "stamp": "20261127_162505",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510500.SS_20261127_162505.json"
+  },
+  {
+   "id": "513750.SS_20261127_162148",
+   "ticker": "513750.SS",
+   "name": "场内跨境 ETF，跟踪港股科技类标的",
+   "date": "2026-11-27",
+   "rating": "持有",
+   "generated": "2026-11-27 16:21:48",
+   "target": "未提供",
+   "horizon": "1-3 个月",
+   "summary": "对 513750.SS 维持现有仓位,不加仓、不清仓,总仓位上限不超过标准仓位的 75%。设置双向触发:向上若收盘站上 1.414(50SMA)且 MACD 金叉,以标准仓位的 50% 试探加仓,止损 1.34;向下若收盘跌破 1.304 则减半仓,跌破布林下轨 1.2875 则全部离场。时间视野 …",
+   "stamp": "20261127_162148",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513750.SS_20261127_162148.json"
+  },
+  {
+   "id": "159949.SZ_20261127_162131",
+   "ticker": "159949.SZ",
+   "name": "创业板50ETF",
+   "date": "2026-11-27",
+   "rating": "卖出",
+   "generated": "2026-11-27 16:21:31",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261127_162131",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159949.SZ_20261127_162131.json"
+  },
+  {
+   "id": "588200.SS_20261127_162118",
+   "ticker": "588200.SS",
+   "name": "科创50ETF",
+   "date": "2026-11-27",
+   "rating": "卖出",
+   "generated": "2026-11-27 16:21:18",
+   "target": "未提供",
+   "horizon": "2-6 weeks, until confirmation",
+   "summary": "对 588200.SS 执行减仓型卖出:已持仓者利用当前反弹分批兑现,将敞口降至标准配置的约 0.3–0.4 倍(第一档在 0.926–0.93 附近,第二档借 50 SMA 0.9425 压力位完成),分两到三批执行,不做一次性清仓;未持仓者不追高、不做空,列入观察名单。风控上以\"收盘有效跌破 0…",
+   "stamp": "20261127_162118",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588200.SS_20261127_162118.json"
+  },
+  {
+   "id": "512100.SS_20261127_162047",
+   "ticker": "512100.SS",
+   "name": "中证500ETF",
+   "date": "2026-11-27",
+   "rating": "持有",
+   "generated": "2026-11-27 16:20:47",
+   "target": "未提供",
+   "horizon": "1-3 months",
+   "summary": "维持现有持仓不动,空仓者暂不建仓。512100.SS 收盘 2.464,仍低于 50SMA(2.730)和 200SMA(3.122),今日 9.6% 放量大阳线尚无 MACD 金叉与 RSI 突破 50 的确认,现价追多盈亏比不利,故不采取单边行动。确认触发:若收盘有效站稳 2.512 且先经 1…",
+   "stamp": "20261127_162047",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512100.SS_20261127_162047.json"
+  },
   {
    "id": "510500.SS_20261126_172716",
    "ticker": "510500.SS",
