@@ -774,6 +774,13 @@ body.dark .ev-line .ev-label { background: rgba(20,24,34,.75); }
   border: 0;
 }
 
+/* ===== 教程（无头部，iframe 占满内容区） ===== */
+.tutorial-frame { margin-top: 0; }
+.tutorial-frame iframe { height: calc(100vh - 110px); }
+@media (max-width: 900px) {
+  .tutorial-frame iframe { height: calc(100vh - 64px); min-height: 380px; }
+}
+
 /* ===== 教程 ===== */
 .badge.k-tutorial { background: #e0f2f1; color: #00695c; margin-left: 0; }
 .tree-group {

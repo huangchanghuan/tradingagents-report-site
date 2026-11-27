@@ -112,6 +112,19 @@
   @media (max-width: 860px) {
     .laws, .phases { grid-template-columns: 1fr; }
   }
+
+  /* 手机 H5 适配 */
+  @media (max-width: 640px) {
+    body { padding: 16px 12px 40px; }
+    header { margin-bottom: 16px; }
+    header h1 { font-size: 20px; }
+    header p { font-size: 13px; }
+    .chart-card { padding: 12px 8px 8px; -webkit-overflow-scrolling: touch; }
+    .law, .phase { padding: 12px 14px; }
+    .law h3, .phase h3 { font-size: 14.5px; }
+    .law p, .phase li, .phase .strategy { font-size: 12.5px; }
+    footer { margin-top: 18px; }
+  }
 </style>
 </head>
 <body>

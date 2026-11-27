@@ -87,6 +87,21 @@
   footer { margin-top: 26px; text-align: center; color: #90a4ae; font-size: 12px; line-height: 1.7; }
 
   @media (max-width: 860px) { .rules { grid-template-columns: 1fr; } }
+
+  /* 手机 H5 适配 */
+  @media (max-width: 640px) {
+    body { padding: 16px 12px 40px; }
+    header { margin-bottom: 16px; }
+    header h1 { font-size: 20px; }
+    header p { font-size: 13px; }
+    .chart-card { padding: 12px 8px 8px; -webkit-overflow-scrolling: touch; }
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 12.5px; }
+    th, td { padding: 8px 10px; }
+    .rule { padding: 12px 14px; }
+    .rule h3 { font-size: 14.5px; }
+    .rule p { font-size: 12.5px; }
+    footer { margin-top: 18px; }
+  }
 </style>
 </head>
 <body>

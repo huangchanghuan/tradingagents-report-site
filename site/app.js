@@ -695,13 +695,7 @@
     $docsList.querySelectorAll(".tree-report.active").forEach(function (el) { el.classList.remove("active"); });
     $specialList.querySelectorAll(".tree-report.active").forEach(function (el) { el.classList.remove("active"); });
     $main.innerHTML =
-      '<div class="report-header">' +
-      '<div class="rh-line1"><span class="badge k-tutorial" style="font-size:13px;">' + esc(t.kind || "教程") + "</span>" +
-      '<h2 style="font-family:inherit;">' + esc(t.title) + "</h2></div>" +
-      '<div class="rh-meta"><span>日期 <b>' + esc(t.date || "—") + "</b></span></div>" +
-      (t.desc ? '<div class="report-summary">' + esc(t.desc) + "</div>" : "") +
-      "</div>" +
-      '<div class="special-frame"><iframe src="' + esc(t.file) + '" title="' + esc(t.title) + '" loading="lazy"></iframe></div>';
+      '<div class="special-frame tutorial-frame"><iframe src="' + esc(t.file) + '" title="' + esc(t.title) + '" loading="lazy"></iframe></div>';
     window.scrollTo({ top: 0 });
   }
 
