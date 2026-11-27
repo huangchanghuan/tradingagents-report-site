@@ -7,8 +7,10 @@ A股指数历史大暴跌复盘专题报告生成器（数据口径：腾讯月�
 """
 import json
 import math
+import os
 import re
 import sys
+import time
 import urllib.request
 from datetime import date
 
@@ -20,6 +22,40 @@ INDICES = [
     ("sz399001", "深证成指"),
     ("sz399006", "创业板指"),
 ]
+
+# 同花顺月线回退源（腾讯 ifzq 接口被 WAF 拦时使用）
+THS_CODES = {"sh000001": "1A0001", "sz399001": "399001", "sz399006": "399006"}
+THS_START_YEAR = {"sh000001": 1990, "sz399001": 1993, "sz399006": 2010}
+
+
+def fetch_monthly_ths(symbol, end_str):
+    """同花顺 d.10jqka.com.cn 月线（收盘价口径）。返回 [(month 'YYYY-MM', close)]"""
+    code = THS_CODES[symbol]
+    y0, y1 = THS_START_YEAR[symbol], int(end_str[:4])
+    seen = {}
+    for y in range(y0, y1 + 1):
+        url = f"http://d.10jqka.com.cn/v6/line/hs_{code}/21/{y}.js"
+        payload = None
+        for attempt in range(4):
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": UA, "Referer": "http://stock.10jqka.com.cn/"})
+                txt = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
+                payload = json.loads(re.search(r"\((.*)\)\s*;?\s*$", txt, re.S).group(1))
+                break
+            except Exception:
+                if attempt == 3:
+                    raise
+                time.sleep(2 + attempt * 3)   # 同花顺有间歇性 502 节流，退避重试
+        for r in payload.get("data", "").split(";"):
+            if not r:
+                continue
+            p = r.split(",")
+            d = p[0]                          # 'YYYYMMDD' = 当月最后交易日
+            m = d[:4] + "-" + d[4:6]
+            if m <= end_str[:7]:
+                seen[m] = float(p[4])         # p[4] = 收盘
+        time.sleep(0.6)                       # 限速，避免触发节流
+    return sorted(seen.items())
 
 
 def fetch_monthly(symbol):
@@ -211,8 +247,14 @@ def render_entry_table(all_events):
 
 def main():
     data = {}
+    source = "腾讯"
     for sym, name in INDICES:
-        ser = fetch_monthly(sym)
+        try:
+            ser = fetch_monthly(sym)
+        except Exception as e:
+            print(f"{name}: 腾讯月线获取失败（{e.__class__.__name__}），改用同花顺回退源")
+            source = "同花顺"
+            ser = fetch_monthly_ths(sym, END)
         data[sym] = (name, [m for m, _ in ser], [c for _, c in ser])
         print(f"{name}: {ser[0][0]} ~ {ser[-1][0]} 共 {len(ser)} 根月线，末值 {ser[-1][1]:.0f}")
 
@@ -259,7 +301,7 @@ def main():
     def entry_row(sym_name):
         pass
 
-    note = (f'<p class="note">数据：腾讯月线（收盘价口径，指数无复权），统计区间至 {END}'
+    note = (f'<p class="note">数据：{source}月线（收盘价口径，指数无复权），统计区间至 {END}'
             f'（末月为进行中的月线，收盘价截至 {END}）；回撤事件按之字形算法拆分'
             f'（反弹/回调 ≥20% 确认拐点），只保留跌幅 ≥30% 的事件。</p>')
 
@@ -305,7 +347,8 @@ th{{background:#f3f4f6}}
 <p class="note">口径说明：均为月收盘价，与盘中极值口径略有差异（如上证 2007 盘中 6124 / 收盘 5955、创业板 2015 盘中 4037 / 收盘 3543）。本报告仅为历史统计复盘，不构成投资建议。</p>
 </body></html>"""
 
-    out = "/home/sun/Desktop/project/tradingagents-report-site/site/special/ashare-crash-review-20261105.html"
+    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                       "site", "special", "ashare-crash-review-20261105.html")
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"\n已写入 {out}（{len(html)} 字节）")
