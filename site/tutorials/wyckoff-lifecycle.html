@@ -372,24 +372,37 @@
 
 <script>
   const tip = document.getElementById('tooltip');
+  function showTip(g, x, y) {
+    tip.innerHTML = g.dataset.t;
+    tip.style.display = 'block';
+    const pad = 14;
+    const r = tip.getBoundingClientRect();
+    let px = x + pad, py = y + pad;
+    if (px + r.width > window.innerWidth - 8)  px = x - r.width - pad;
+    if (py + r.height > window.innerHeight - 8) py = y - r.height - pad;
+    if (px < 8) px = 8;
+    if (py < 8) py = 8;
+    tip.style.left = px + 'px';
+    tip.style.top = py + 'px';
+  }
   document.querySelectorAll('.ev').forEach(g => {
-    g.addEventListener('mousemove', e => {
-      tip.innerHTML = g.dataset.t;
-      tip.style.display = 'block';
-      const pad = 14;
-      let x = e.clientX + pad, y = e.clientY + pad;
-      const r = tip.getBoundingClientRect();
-      if (x + r.width > window.innerWidth - 8)  x = e.clientX - r.width - pad;
-      if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - pad;
-      tip.style.left = x + 'px';
-      tip.style.top = y + 'px';
+    g.addEventListener('mousemove', e => showTip(g, e.clientX, e.clientY));
+    // 手机端：点按事件点直接显示说明（click 比 emulated mousemove 更可靠）
+    g.addEventListener('click', e => {
+      const r = g.getBoundingClientRect();
+      showTip(g, r.left + r.width / 2, r.top + r.height / 2);
     });
     g.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
   });
 
   // 手机端：点按图表在「完整缩放」与「横向滚动放大」之间切换
+  // 点击事件点（.ev）查看说明时不切换缩放，避免图立刻变小；切换缩放时收起说明框
   document.querySelectorAll('.chart-card').forEach(function (card) {
-    card.addEventListener('click', function () { card.classList.toggle('zoomed'); });
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.ev')) return;
+      tip.style.display = 'none';
+      card.classList.toggle('zoomed');
+    });
   });
 </script>
 </body>
