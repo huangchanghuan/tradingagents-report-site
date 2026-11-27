@@ -54,6 +54,8 @@
     overflow-x: auto; margin-bottom: 16px;
   }
   svg.chart { display: block; min-width: 860px; width: 100%; height: auto; }
+  .chart-hint { display: none; margin: 6px 4px 0; font-size: 11px; color: #999; text-align: center; user-select: none; -webkit-user-select: none; }
+  .chart-card { cursor: pointer; }
 
   table { width: 100%; border-collapse: collapse; background: var(--card);
     border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
@@ -90,6 +92,11 @@
     section { margin-bottom: 24px; }
     section > h2 { font-size: 17px; padding: 8px 12px; }
     .chart-card { padding: 12px 8px 8px; -webkit-overflow-scrolling: touch; }
+    /* 手机端：图表完整缩放显示（点按可切换为横向滚动放大模式） */
+    .chart-card svg.chart { min-width: 0; }
+    .chart-card .chart-hint { display: block; }
+    .chart-card.zoomed { overflow-x: auto; }
+    .chart-card.zoomed svg.chart { min-width: 860px; }
     table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 12.5px; }
     th, td { padding: 8px 10px; }
     .card, .level { padding: 12px 14px; }
@@ -226,6 +233,7 @@
         <text x="238" y="436">威科夫事件点（红=高潮/失败点）</text>
       </g>
     </svg>
+    <div class="chart-hint">手机端：点按图表可放大为左右滑动模式，再点一次还原全图</div>
   </div>
 
   <table>
@@ -351,6 +359,7 @@
         <text x="238" y="436">威科夫事件点（红=高潮/失败点）</text>
       </g>
     </svg>
+    <div class="chart-hint">手机端：点按图表可放大为左右滑动模式，再点一次还原全图</div>
   </div>
 
   <table>
@@ -412,5 +421,11 @@
 </p>
 
 </div>
+<script>
+// 手机端：点按图表在「完整缩放」与「横向滚动放大」之间切换
+document.querySelectorAll('.chart-card').forEach(function (card) {
+  card.addEventListener('click', function () { card.classList.toggle('zoomed'); });
+});
+</script>
 </body>
 </html>

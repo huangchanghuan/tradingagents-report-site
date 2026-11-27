@@ -37,6 +37,8 @@
     overflow-x: auto;
   }
   svg { display: block; min-width: 900px; width: 100%; height: auto; }
+  .chart-hint { display: none; margin: 6px 4px 0; font-size: 11px; color: #999; text-align: center; user-select: none; -webkit-user-select: none; }
+  .chart-card { cursor: pointer; }
 
   /* 事件点 */
   .ev { cursor: pointer; }
@@ -120,6 +122,11 @@
     header h1 { font-size: 20px; }
     header p { font-size: 13px; }
     .chart-card { padding: 12px 8px 8px; -webkit-overflow-scrolling: touch; }
+    /* 手机端：图表完整缩放显示（点按可切换为横向滚动放大模式） */
+    .chart-card svg { min-width: 0; }
+    .chart-card .chart-hint { display: block; }
+    .chart-card.zoomed { overflow-x: auto; }
+    .chart-card.zoomed svg { min-width: 900px; }
     .law, .phase { padding: 12px 14px; }
     .law h3, .phase h3 { font-size: 14.5px; }
     .law p, .phase li, .phase .strategy { font-size: 12.5px; }
@@ -294,6 +301,7 @@
         <text x="1022" y="504" text-anchor="end" fill="#90a4ae">鼠标悬停事件点查看解读</text>
       </g>
     </svg>
+    <div class="chart-hint">手机端：点按图表可放大为左右滑动模式，再点一次还原全图</div>
   </div>
 
   <div class="laws">
@@ -377,6 +385,11 @@
       tip.style.top = y + 'px';
     });
     g.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+  });
+
+  // 手机端：点按图表在「完整缩放」与「横向滚动放大」之间切换
+  document.querySelectorAll('.chart-card').forEach(function (card) {
+    card.addEventListener('click', function () { card.classList.toggle('zoomed'); });
   });
 </script>
 </body>
