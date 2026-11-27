@@ -65,14 +65,13 @@
   }
   #tooltip b { font-size: 13px; }
 
-  /* 表格在自身内部横向滚动（iframe/窄容器下不再撑破整页） */
-  table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
-          border-collapse: collapse; background: var(--card);
-          border: 1px solid var(--line); border-radius: 12px;
+  /* 表格保持单张宽度自适应容器，内容在单元格内自动换行，不做横向滚动 */
+  table { width: 100%; border-collapse: collapse; background: var(--card);
+          border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
           box-shadow: 0 2px 8px rgba(38,50,56,.05); font-size: 13px; }
   th { background: #37474f; color: #fff; padding: 10px 12px; text-align: left;
-       font-weight: 600; white-space: nowrap; }
-  td { padding: 10px 12px; border-top: 1px solid #eceff1; line-height: 1.6; vertical-align: top; }
+       font-weight: 600; }
+  td { padding: 10px 12px; border-top: 1px solid #eceff1; line-height: 1.6; vertical-align: top; word-break: break-word; overflow-wrap: anywhere; }
   tr:nth-child(even) td { background: #fafbfc; }
   td b.tno { display: inline-block; color: #fff; font-size: 12px; padding: 1px 8px;
              border-radius: 999px; margin-right: 4px; }
