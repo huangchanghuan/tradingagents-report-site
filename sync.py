@@ -539,6 +539,24 @@ def main() -> int:
         report_dirs = kept
         print(f"[窗口] 保留 {cutoff:%Y-%m-%d} 起的报告 {len(kept)} 份，跳过更早 {dropped} 份")
 
+    # 跨机协作：另一台机器跑批生成的报告可能只存在于 site/reports（随 git 提交），
+    # 本机源目录没有。窗口内的这类报告不能当「源目录缺失」误归档，要从站点目录
+    # 直接构建清单条目（K线 aux 已随 git 带过来，build_aux 直接复用）；窗口外的照旧归档。
+    if REPORTS_OUT.is_dir():
+        seen_src = {d.name for d in report_dirs}
+        site_only = []
+        for d in sorted(REPORTS_OUT.iterdir()):
+            if not d.is_dir() or not DIR_RE.match(d.name) or d.name in seen_src:
+                continue
+            m = DIR_RE.match(d.name)
+            dt = stamp_to_dt(m.group("stamp"))
+            if args.keep_days > 0 and (dt is None or dt.date() < cutoff):
+                continue  # 窗口外：留给下面的归档逻辑清理
+            site_only.append(d)
+        if site_only:
+            report_dirs.extend(site_only)
+            print(f"[跨机] 从 site/reports 补入 {len(site_only)} 份本机源目录没有的窗口内报告")
+
     entries = []
     copied = skipped = removed = 0
 
@@ -549,6 +567,10 @@ def main() -> int:
         if manifest.get(rid, {}).get("sig") == sig:
             skipped += 1
             entry = manifest[rid]["entry"]
+            # 缓存命中时也复用已存在的 K线 aux（跨机场景 json 可能刚随 git 到位）
+            if not entry.get("aux") and (KLINE_DIR / f"{rid}.json").exists():
+                entry["aux"] = f"data/kline/{rid}.json"
+                manifest[rid]["entry"] = entry
             # 兜底：当日报告的 aux 缺失(被删/上次生成失败)则补生成; 历史报告不补
             st = stamp_to_dt(m.group("stamp"))
             if (st and st.date() == datetime.now().date()
@@ -556,7 +578,10 @@ def main() -> int:
                 build_aux(rid, entry["ticker"], d, entry, m.group("stamp"))
             entries.append(entry)
             continue
-        n = copy_report(d, REPORTS_OUT / rid)
+        if d.parent == REPORTS_OUT:
+            n = len(list(d.rglob("*.md")))  # 跨机报告已在 site/reports，无需拷贝
+        else:
+            n = copy_report(d, REPORTS_OUT / rid)
         meta = extract_meta(m.group("ticker"), d, m.group("stamp"))
         entry = {**meta, "files": collect_files(d)}
         build_aux(rid, entry["ticker"], d, entry, m.group("stamp"))

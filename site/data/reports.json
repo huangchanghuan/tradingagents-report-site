@@ -1,16 +1,16 @@
 {
- "generatedAt": "2026-11-28T22:42:19",
+ "generatedAt": "2026-11-28T23:14:12",
  "source": "/home/sun/.tradingagents/logs/reports",
- "count": 18,
+ "count": 24,
  "brief": {
   "start": "11-21",
   "end": "11-28",
-  "reportCount": 18,
+  "reportCount": 24,
   "stockCount": 6,
   "buyCount": 0,
-  "overweightCount": 0,
-  "holdCount": 3,
-  "sellCount": 3,
+  "overweightCount": 2,
+  "holdCount": 2,
+  "sellCount": 2,
   "bigChance": [
    "指数深坑回调，对比历史和各种数据，直接重仓杠杆买指数反弹，反弹减仓兑现。"
   ],
@@ -23,15 +23,405 @@
   "failLesson": "必须有计划。盈利后，最重要的是锁住利润，重点考虑什么时候离场，不要变成亏本了。"
  },
  "strategy": [
-  "市场判断：空头主导，市场环境很差——近一周 买入 0 / 增持 0 / 中性 3 / 减持·卖出 3（平均评级分 -0.8）。",
-  "是否右侧：尚在左侧，不要抄底，不做的模式不做，等待放量收复关键均线再入场。",
-  "仓位建议：空仓止损，严格执行止损纪律，耐心等待右侧信号。",
-  "若只有空仓和满仓两个选择：空仓。",
-  "风险纪律：510300.SS、159949.SZ、588200.SS 评级偏空，已持仓的立即严格执行止损，未持仓的不要接飞刀。",
+  "市场判断：偏多但未达满配信心（以 Overweight/增持 为主）——近一周 买入 0 / 增持 2 / 中性 2 / 减持·卖出 2（平均评级分 -0.3）。",
+  "是否右侧：方向看多但证据未强到满配级，增持标的可新开仓但要分批、小仓位；持有级标的不新开仓。",
+  "仓位建议：20%-50% 分批小仓位介入，挂确认条件（放量突破 / 日线站上 MA5/MA10 / 回踩不破关键位），确认后逐步加仓。",
+  "若只有空仓和满仓两个选择：空仓（增持只是可新开仓但需克制，未达满配信心宁缺毋滥）。",
+  "风险纪律：510500.SS、513750.SS 评级偏空，已持仓的立即严格执行止损，未持仓的不要接飞刀。",
   "评级阶梯：Buy（买入）→ Overweight（增持）→ Hold（持有）→ Reduce（减持）→ Sell（卖出）；买入=标准配置甚至满配立即建仓，增持=分批小仓位挂确认条件，持有=不新开仓。",
   "（以上为基于近一周报告评级的规则化推断，不构成投资建议）"
  ],
  "reports": [
+  {
+   "id": "510300.SS_20261128_162620",
+   "ticker": "510300.SS",
+   "name": "沪深300ETF",
+   "date": "2026-11-28",
+   "rating": "持有",
+   "generated": "2026-11-28 16:26:20",
+   "target": "未提供",
+   "horizon": "2-6周（至4.2476或3.95触发线决出方向）",
+   "summary": "维持510300.SS现有仓位，不加不减：价格4.162已贴近布林上轨4.2108、且距50日SMA（4.2476）仅1.2%，此处追多风险收益比被空方有效论证削弱；但同时也不存在支持抛售的动能证据。设定两条硬性触发线：放量连续2日站稳4.2476则上调至Overweight并增配至标准的1.2–1…",
+   "stamp": "20261128_162620",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510300.SS_20261128_162620.json"
+  },
+  {
+   "id": "510500.SS_20261128_162553",
+   "ticker": "510500.SS",
+   "name": "南方中证500ETF",
+   "date": "2026-11-28",
+   "rating": "卖出",
+   "generated": "2026-11-28 16:25:53",
+   "target": "5.87",
+   "horizon": "3-6 months",
+   "summary": "510500.SS执行卖出/减持：已持仓者立即开始分批降低敞口至标准配置0–30%，若价格反弹至6.60–6.70前高供给区则加速减仓，不以反弹为减仓前提；若跌破5.87（布林下轨/前低）立即清仓剩余仓位。未持仓者暂不建仓，最多以不超过标准配置10%的仓位在6.20–6.30回踩10 EMA支撑区试…",
+   "stamp": "20261128_162553",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/510500.SS_20261128_162553.json"
+  },
+  {
+   "id": "159949.SZ_20261128_162147",
+   "ticker": "159949.SZ",
+   "name": "深交所创业板50ETF，人民币计价，前复权价格",
+   "date": "2026-11-28",
+   "rating": "持有",
+   "generated": "2026-11-28 16:21:47",
+   "target": "未提供",
+   "horizon": "1-3个月（以触发条件驱动，非时间驱动）",
+   "summary": "159949.SZ现价1.108不建仓、不加仓：11-27天量长阳（+12.7%）后的追高在ATR 4.7%环境下无安全边际，趋势反转硬条件（收盘站上1.258、MACD DIF上穿零轴）均未达成。维持现有头寸中性规模（观察仓0-5%或既有底仓不动），设0.966日线收盘为无条件风控线。等待两类触发…",
+   "stamp": "20261128_162147",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/159949.SZ_20261128_162147.json"
+  },
+  {
+   "id": "588200.SS_20261128_162051",
+   "ticker": "588200.SS",
+   "name": "科创芯片ETF",
+   "date": "2026-11-28",
+   "rating": "增持",
+   "generated": "2026-11-28 16:20:51",
+   "target": "1.0",
+   "horizon": "3-8周（波段交易，非战略建仓）",
+   "summary": "方向偏多但拒绝在0.926现价追高：目标敞口8–10%，仅在回踩0.837–0.845（10 EMA 0.8382与布林中轨0.8374共振区）且成交量较11-27的74.5亿股明显萎缩时分批建基础仓3%；确认仓3–4%留待回抽0.943不破且MACD零轴上穿后执行，禁止在0.926–0.941区间…",
+   "stamp": "20261128_162051",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/588200.SS_20261128_162051.json"
+  },
+  {
+   "id": "512100.SS_20261128_161339",
+   "ticker": "512100.SS",
+   "name": "中证1000ETF",
+   "date": "2026-11-28",
+   "rating": "增持",
+   "generated": "2026-11-28 16:13:39",
+   "target": "2.73",
+   "horizon": "2–6周（战术段2–5个交易日，波段段以三重确认为触发升级）",
+   "summary": "Overweight 512100.SS，但首仓剂量压缩至标准仓位的20–25%（区间2.44–2.46），将这笔交易的账户风险按跳空至2.15折算控制在1.5%左右，并贴上\"逆趋势战术仓\"标签。硬止损维持收盘跌破2.222无条件清仓（滑点按-12%预算）；五个交易日内动能柱未转正且价格未站上2.5…",
+   "stamp": "20261128_161339",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/512100.SS_20261128_161339.json"
+  },
+  {
+   "id": "513750.SS_20261128_161327",
+   "ticker": "513750.SS",
+   "name": "场内跨境 ETF，跟踪港股科技类标的",
+   "date": "2026-11-28",
+   "rating": "卖出",
+   "generated": "2026-11-28 16:13:27",
+   "target": "",
+   "horizon": "",
+   "summary": "",
+   "stamp": "20261128_161327",
+   "files": {
+    "complete": {
+     "path": "complete_report.md",
+     "label": "完整报告"
+    },
+    "analysts": [
+     {
+      "path": "1_analysts/market.md",
+      "label": "市场分析师"
+     }
+    ],
+    "research": [
+     {
+      "path": "2_research/bear.md",
+      "label": "空方观点"
+     },
+     {
+      "path": "2_research/bull.md",
+      "label": "多方观点"
+     },
+     {
+      "path": "2_research/manager.md",
+      "label": "研究经理"
+     }
+    ],
+    "trading": [
+     {
+      "path": "3_trading/trader.md",
+      "label": "交易员"
+     }
+    ],
+    "risk": [
+     {
+      "path": "4_risk/aggressive.md",
+      "label": "激进派"
+     },
+     {
+      "path": "4_risk/conservative.md",
+      "label": "保守派"
+     },
+     {
+      "path": "4_risk/neutral.md",
+      "label": "中立派"
+     }
+    ],
+    "decision": [
+     {
+      "path": "5_portfolio/decision.md",
+      "label": "最终决策"
+     }
+    ]
+   },
+   "aux": "data/kline/513750.SS_20261128_161327.json"
+  },
   {
    "id": "510300.SS_20261127_162540",
    "ticker": "510300.SS",
@@ -94,7 +484,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/510300.SS_20261127_162540.json"
   },
   {
    "id": "510500.SS_20261127_162505",
@@ -158,7 +549,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/510500.SS_20261127_162505.json"
   },
   {
    "id": "513750.SS_20261127_162148",
@@ -222,7 +614,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/513750.SS_20261127_162148.json"
   },
   {
    "id": "159949.SZ_20261127_162131",
@@ -286,7 +679,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/159949.SZ_20261127_162131.json"
   },
   {
    "id": "588200.SS_20261127_162118",
@@ -350,7 +744,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/588200.SS_20261127_162118.json"
   },
   {
    "id": "512100.SS_20261127_162047",
@@ -414,7 +809,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/512100.SS_20261127_162047.json"
   },
   {
    "id": "510500.SS_20261126_172716",
@@ -478,7 +874,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/510500.SS_20261126_172716.json"
   },
   {
    "id": "512100.SS_20261126_172200",
@@ -542,7 +939,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/512100.SS_20261126_172200.json"
   },
   {
    "id": "510300.SS_20261126_172154",
@@ -606,7 +1004,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/510300.SS_20261126_172154.json"
   },
   {
    "id": "159949.SZ_20261126_171623",
@@ -670,7 +1069,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/159949.SZ_20261126_171623.json"
   },
   {
    "id": "513750.SS_20261126_171348",
@@ -734,7 +1134,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/513750.SS_20261126_171348.json"
   },
   {
    "id": "588200.SS_20261126_171251",
@@ -798,7 +1199,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/588200.SS_20261126_171251.json"
   },
   {
    "id": "510500.SS_20261126_151032",
@@ -870,7 +1272,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/510500.SS_20261126_151032.json"
   },
   {
    "id": "588200.SS_20261126_145731",
@@ -934,7 +1337,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/588200.SS_20261126_145731.json"
   },
   {
    "id": "159949.SZ_20261126_145705",
@@ -998,7 +1402,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/159949.SZ_20261126_145705.json"
   },
   {
    "id": "512100.SS_20261126_145652",
@@ -1062,7 +1467,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/512100.SS_20261126_145652.json"
   },
   {
    "id": "513750.SS_20261126_145559",
@@ -1126,7 +1532,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/513750.SS_20261126_145559.json"
   },
   {
    "id": "510300.SS_20261126_123604",
@@ -1198,7 +1605,8 @@
       "label": "最终决策"
      }
     ]
-   }
+   },
+   "aux": "data/kline/510300.SS_20261126_123604.json"
   }
  ]
 }
