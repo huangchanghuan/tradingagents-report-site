@@ -1,7 +1,23 @@
 {
- "generatedAt": "2026-11-27T16:18:31",
- "count": 43,
+ "generatedAt": "2026-11-28T16:19:11",
+ "count": 45,
  "docs": [
+  {
+   "id": "local-20261128-161225-ee50d8",
+   "title": "stock-pool-scan技术分析报告 2026-11-28 16:12:12 claude",
+   "url": "",
+   "kind": "股票池扫描",
+   "date": "2026-11-28",
+   "path": "tdocs/local-20261128-161225-ee50d8.md"
+  },
+  {
+   "id": "local-20261128-161911-6b2fd4",
+   "title": "Finance报告2026-11-28 16:15:00 claude",
+   "url": "https://docs.qq.com/sheet/DQmtoZG9Vd05pd1BR?tab=BB08J2",
+   "kind": "Finance 报告",
+   "date": "2026-11-28",
+   "path": "tdocs/local-20261128-161911-6b2fd4.md"
+  },
   {
    "id": "local-20261127-161831-da9f64",
    "title": "Finance报告2026-11-27 16:00:00 小普-claude",
