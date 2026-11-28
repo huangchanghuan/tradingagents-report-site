@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国家队份额监控 — 宽基ETF申赎</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;margin:0;background:#f7f8fa;color:#1f2937;padding:20px 18px 50px;}
+  h1{font-size:20px;margin:6px 0 4px;}
+  .sub{color:#6b7280;font-size:12.5px;margin-bottom:14px;line-height:1.7;}
+  .cards{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;}
+  .card{flex:1 1 160px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;}
+  .card .k{font-size:12px;color:#6b7280;}
+  .card .v{font-size:19px;font-weight:600;margin-top:4px;}
+  .red{color:#c0392b;} .green{color:#1a7f4b;} .blue{color:#185FA5;}
+  .panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px;margin:10px 0;}
+  h2{font-size:15.5px;margin:22px 0 8px;border-left:4px solid #185FA5;padding-left:9px;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border-radius:8px;overflow:hidden;}
+  th{background:#eef2f7;text-align:left;padding:7px 9px;font-weight:500;color:#374151;}
+  td{padding:6px 9px;border-top:1px solid #f0f1f3;}
+  ol{line-height:1.85;font-size:13.5px;padding-left:22px;} li{margin-bottom:5px;}
+  .foot{color:#9ca3af;font-size:11.5px;line-height:1.7;margin-top:20px;}
+  .err{background:#FCEBEB;color:#A32D2D;border-radius:10px;padding:14px;font-size:14px;}
+  .tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:12.5px;font-weight:600;}
+  .tag.buy{background:#FCEBEB;color:#A32D2D;} .tag.sell{background:#EAF3DE;color:#1A7F4B;}
+  .tag.flat{background:#eef2f7;color:#5F5E5A;}
+</style>
+</head>
+<body>
+<h1>国家队份额监控 — 宽基ETF申赎</h1>
+<div class="sub" id="meta">数据源：上交所官方 ETF 规模归档接口（份额=场内总份额，仅沪市 5 开头，深市 159 开头不在口径内）；月频=每月首个交易日采样（2015 年起），日频=最近 45 个交易日。份额净申购是比 K 线量能更硬的国家队行为指纹——成交量分不出买卖主体，申赎能。</div>
+
+<div class="cards" id="cards"></div>
+
+<h2>510300 份额长周期（2015 至今）</h2>
+<div class="panel"><div id="chart1" style="width:100%;height:340px;"></div></div>
+
+<h2>篮子 ETF 份额 · 最近 45 个交易日</h2>
+<div class="panel"><div id="chart2" style="width:100%;height:340px;"></div></div>
+
+<h2>近 5 日 / 近 20 日份额变化（红=净申购 · 绿=净赎回）</h2>
+<div class="panel"><div id="chart3" style="width:100%;height:260px;"></div></div>
+<div style="overflow-x:auto;"><table id="tbl">
+<thead><tr><th>ETF</th><th>最新份额(亿份)</th><th>近5日变化</th><th>近20日变化</th></tr></thead>
+<tbody></tbody></table></div>
+
+<h2>怎么读这个页</h2>
+<ol>
+<li><b>低位放量净申购 = 国家队承接</b>（如 2024-01~02、2025-04、2026-09~11）：下行风险被托住，但承接只稳斜率、不保证立即反转，等价格自己确认右侧。</li>
+<li><b>高位份额骤降 = 国家队退出</b>（如 2026-01~02 腰斩、2026-05~06 再减）：跟风盘的对手盘就是它，警惕。</li>
+<li><b>月频看长周期位置</b>：历史规律是承接窗口末价格分位 ≤54%、赎回窗口 ≥94%（8 个窗口无一例外，量化明细见<a href="nt-pattern-review.html" target="_blank" style="color:#185FA5;">《国家队行为规律复盘》专题</a>），份额变化要结合价格位置解读，单独看份额会误判。</li>
+<li><b>不能把每笔申购都记到汇金头上</b>：险资、理财、私募也在这些品种申赎；汇金确切持仓以基金定期报告为准（季报披露 20% 线、半年报/年报披露前十大持有人）。</li>
+</ol>
+
+<div class="foot" id="foot">免责声明：以上内容基于公开数据和量化分析，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。</div>
+
+<script>
+(function () {
+  fetch("../data/nt_shares.json").then(function (r) { return r.json(); }).then(function (D) {
+    var S = D.series || {};
+    document.getElementById("meta").innerHTML += "数据更新至 <b>" + (S.updated || D.updated || "?") + "</b>（" + (D.generatedAt || "") + " 生成）。";
+    var b = (S.basket || []);
+    var main = b.filter(function (x) { return x.code === "510300"; })[0] || b[0];
+    var cards = document.getElementById("cards");
+    if (main) {
+      var state, cls;
+      if (main.chg20 > 5) { state = "净申购 · 承接"; cls = "buy"; }
+      else if (main.chg20 < -5) { state = "净赎回 · 退出"; cls = "sell"; }
+      else { state = "份额平稳"; cls = "flat"; }
+      function fmt(v) { return v === null || v === undefined ? "—" : (v > 0 ? "+" : "") + v + "亿份"; }
+      function color(v) { return v === null || v === undefined ? "" : (v > 0 ? "red" : "green"); }
+      cards.innerHTML =
+        '<div class="card"><div class="k">510300 最新份额</div><div class="v">' + (main.latest || "—") + ' 亿份</div></div>' +
+        '<div class="card"><div class="k">近5日净变动</div><div class="v ' + color(main.chg5) + '">' + fmt(main.chg5) + '</div></div>' +
+        '<div class="card"><div class="k">近20日净变动</div><div class="v ' + color(main.chg20) + '">' + fmt(main.chg20) + '</div></div>' +
+        '<div class="card"><div class="k">状态判定（近20日 ±5% 阈值）</div><div class="v"><span class="tag ' + cls + '">' + state + '</span></div></div>';
+      var tb = document.querySelector("#tbl tbody");
+      b.forEach(function (x) {
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td>" + x.name + "（" + x.code + "）</td><td>" + x.latest + "</td>"
+          + '<td class="' + color(x.chg5) + '">' + fmt(x.chg5) + '</td>'
+          + '<td class="' + color(x.chg20) + '">' + fmt(x.chg20) + '</td>';
+        tb.appendChild(tr);
+      });
+    }
+
+    // 图1：510300 月度份额 + 环比
+    var M = S.monthly510300 || [];
+    if (M.length) {
+      var mLabels = M.map(function (p) { return p[0].slice(0, 7); });
+      var mVals = M.map(function (p) { return p[1]; });
+      var mChg = M.map(function (p, i) { return i === 0 ? null : Math.round((p[1] - M[i - 1][1]) * 100) / 100; });
+      echarts.init(document.getElementById("chart1")).setOption({
+        tooltip: { trigger: "axis" },
+        legend: { data: ["份额(亿份)", "月度净变动"] },
+        grid: { left: 65, right: 65, top: 36, bottom: 46 },
+        dataZoom: [{ type: "inside" }, { type: "slider", height: 16, bottom: 6 }],
+        xAxis: { type: "category", data: mLabels },
+        yAxis: [
+          { type: "value", name: "亿份", scale: true },
+          { type: "value", name: "净变动", scale: true }
+        ],
+        series: [
+          { name: "份额(亿份)", type: "line", data: mVals, showSymbol: false,
+            lineStyle: { width: 1.8, color: "#185FA5" }, itemStyle: { color: "#185FA5" },
+            areaStyle: { color: "rgba(24,95,165,0.07)" },
+            markArea: { silent: true, data: [
+              [{ xAxis: "2026-01", itemStyle: { color: "rgba(196,60,45,0.10)" } }, { xAxis: "2026-06" }],
+              [{ xAxis: "2026-09", itemStyle: { color: "rgba(27,122,75,0.10)" } }, { xAxis: "2026-11" }]
+            ] } },
+          { name: "月度净变动", type: "bar", yAxisIndex: 1, data: mChg,
+            itemStyle: { color: function (p) { return p.value >= 0 ? "#c0392b" : "#1a7f4b"; } } }
+        ]
+      });
+    }
+
+    // 图2：篮子近 45 交易日份额
+    var daily = S.daily || {};
+    var codes = Object.keys(daily).filter(function (c) { return (daily[c] || []).length > 1; });
+    if (codes.length) {
+      var dates = daily[codes[0]].map(function (p) { return p[0]; });
+      var colors = { "510300": "#185FA5", "510310": "#7F77DD", "510330": "#1D9E75", "510050": "#BA7517", "510500": "#D4537E", "512100": "#888780", "588000": "#378ADD" };
+      echarts.init(document.getElementById("chart2")).setOption({
+        tooltip: { trigger: "axis" },
+        legend: { data: codes.map(function (c) { return D.etfs[c] || c; }), type: "scroll" },
+        grid: { left: 65, right: 30, top: 36, bottom: 46 },
+        dataZoom: [{ type: "inside" }, { type: "slider", height: 16, bottom: 6 }],
+        xAxis: { type: "category", data: dates },
+        yAxis: { type: "value", name: "亿份", scale: true },
+        series: codes.map(function (c) {
+          return { name: D.etfs[c] || c, type: "line", data: daily[c].map(function (p) { return p[1]; }),
+            showSymbol: false, lineStyle: { width: 1.5, color: colors[c] || "#888780" }, itemStyle: { color: colors[c] || "#888780" } };
+        })
+      });
+    }
+
+    // 图3：近5日/20日变化条形
+    var names = b.map(function (x) { return x.name; });
+    echarts.init(document.getElementById("chart3")).setOption({
+      tooltip: { trigger: "axis" },
+      legend: { data: ["近5日", "近20日"] },
+      grid: { left: 150, right: 40, top: 30, bottom: 24 },
+      xAxis: { type: "value", name: "亿份" },
+      yAxis: { type: "category", data: names, inverse: true },
+      series: [
+        { name: "近5日", type: "bar", data: b.map(function (x) { return x.chg5; }),
+          itemStyle: { color: "#85B7EB" }, label: { show: true, position: "outside", fontSize: 11 } },
+        { name: "近20日", type: "bar", data: b.map(function (x) { return x.chg20; }),
+          itemStyle: { color: function (p) { return p.value >= 0 ? "#c0392b" : "#1a7f4b"; } },
+          label: { show: true, position: "outside", fontSize: 11 } }
+      ]
+    });
+  }).catch(function (e) {
+    document.getElementById("cards").innerHTML = '<div class="err">数据加载失败：' + e + '（需先生成 site/data/nt_shares.json：python3 scripts/sync_nt_shares.py）</div>';
+  });
+})();
+</script>
+</body>
+</html>

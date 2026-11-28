@@ -606,6 +606,20 @@ def main() -> int:
 
     brief, strategy = build_brief_and_strategy(entries)
 
+    # 国家队份额监控数据更新（best-effort：脚本失败/超时都不影响报告同步主流程）
+    nt_script = ROOT / "scripts" / "sync_nt_shares.py"
+    if nt_script.exists():
+        try:
+            import subprocess
+            r = subprocess.run([sys.executable, str(nt_script)],
+                               capture_output=True, text=True, timeout=420)
+            if r.returncode == 0:
+                print("[国家队] 份额数据已更新")
+            else:
+                print(f"[国家队] 份额更新失败（不影响报告同步）: {(r.stderr or '').strip()[-200:]}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[国家队] 份额更新跳过: {exc}")
+
     INDEX_JSON.write_text(
         json.dumps({"generatedAt": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
                     "source": str(src), "count": len(entries),
